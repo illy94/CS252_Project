@@ -34,3 +34,11 @@ An web-based application that will allow students to view 3D models through augm
 - go to CS252_Project directory and run firebase deploy again to push it to Firebase Hosting
 
 ---
+
+## TODO List 
+- allow users to add new 3D models, animations and patterns to see through AR
+- make a database to save the links to those models, animations or patterns 
+- update the seen models through javascript
+- user authentication for logins
+
+---
