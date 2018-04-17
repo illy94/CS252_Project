@@ -20,3 +20,11 @@ An web-based application that will allow students to view 3D models through augm
 - Firebase (Web Hosting)
 
 ---
+
+## Instructions 
+
+- To run the app locally we have to download Node.js
+- run node app.js 
+- then go to your local browser and use http://localhost:<portnumber> (where <portnumber> is based on what is mentioned in the command line)
+
+---
