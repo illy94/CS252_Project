@@ -21,10 +21,16 @@ An web-based application that will allow students to view 3D models through augm
 
 ---
 
-## Instructions 
+## Notes for Developers 
 
-- To run the app locally we have to download Node.js
+### Local
+- to run the app locally we have to download Node.js
 - run node app.js 
 - then go to your local browser and use http://localhost:<portnumber> (where <portnumber> is based on what is mentioned in the command line)
+  
+### Online
+- run npm install -g firebase-tools 
+- login to firebase with your google account, create a new project
+- run firebase login after and accept the terms
 
 ---
