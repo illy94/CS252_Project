@@ -16,7 +16,7 @@ An web-based application that will allow students to view 3D models through augm
 
 - Node.js
 - MySQL
-- Unity3D (Game Engine)
-- XZIMG (Augmented Reality Toolkit)
+- AR.js (AR library) 
+- Firebase (Web Hosting)
 
 ---
