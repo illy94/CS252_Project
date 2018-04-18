@@ -27,7 +27,7 @@ An web-based application that will allow students to view 3D models through augm
 - to run the app locally we have to download Node.js
 - go to the CS252_Project/myapptest directory
 - run node app.js 
-- then go to your local browser and use http://localhost:<portnumber> (where <portnumber> is based on what is mentioned in the command line)
+- then go to your local browser and use http://localhost:*portnumber* (where *portnumber* is based on what is mentioned in the command line)
   
 ### Online
 - make changes necessary to CS252_Project/myapptest/index.html
