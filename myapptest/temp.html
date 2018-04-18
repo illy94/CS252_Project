@@ -1,6 +1,5 @@
 <!doctype HTML>
 <html>
-
 <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"> </script>
@@ -36,17 +35,44 @@
 
 	function activeCamera(){
 		if(pattern != '' && threeDModel != ''){
-			var body = document.getElementById('body');
+			/*var body = document.getElementById('body');
 			console.log(body);
 			//console.log(body.childNodes);
 			var scene = document.createElement('a-scene');
 			console.log(scene);
 			scene.setAttribute('embedded','true');
 			scene.setAttribute('arjs','sourceType: webcam;');
+			//create the assets for 3d models
 			var assets = document.createElement('a-ssets');
+			var assetItem = document.createElement("a-asset-item");
+			assetItem.setAttribute('src',threeDModel);
+			console.log(assetItem);
+			assets.appendChild(assetItem);
+			console.log(assets);
+			scene.appendChild(assets);
+			console.log(scene);
+			//create marker camera
+			var markerCamer = document.createElement('a-marker-camera');
+			markerCamer.setAttribute('type','pattern');
+			markerCamer.setAttribute('url',pattern);
+			var aEntity = document.createElement('a-entity');
+			aEntity.setAttribute('gltf-model','#Object');
+			aEntity.setAttribute('position','0 0 0');
+			aEntity.setAttribute('scale','0.01 0.01 0.01');
+			aEntity.setAttribute('gltf-model','#Object');
+			aEntity.setAttribute('animation-mixer','loop:repeat');
+			console.log(aEntity);
+			markerCamer.appendChild(aEntity);
+			console.log(markerCamer);
+			scene.appendChild(markerCamer);
+			var cameraAEntity = document.createElement('a-entity');
+			cameraAEntity.setAttribute('camera','true');
+			console.log(cameraAEntity);
+			scene.appendChild(cameraAEntity);
+			body.appendChild(scene);*/
 		}
 		else{
-			alert('Please complete the url')
+			alert('Please enter complete url')
 		}
 		//while(body.childNodes[0]){
 
@@ -54,7 +80,7 @@
 	}
 
 </script>
-  <body id = 'body'>
+  <body id = 'body' style='margin : 0px; overflow: hidden;'>
   	<p>Your trained image pattern url: </p>
 	<input type="text" id = "patternUrl">
 	<br>
