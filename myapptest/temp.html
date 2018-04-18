@@ -11,7 +11,7 @@
 <script>
 	var pattern;
 	var threeDModel;
-
+	var temp;
 	function submitNewPatternAndThreeDModel(){
 		var patternUrl = document.getElementById('patternUrl');
 		var threeDmodeUrl = document.getElementById('threeDmodelUrl');
@@ -38,9 +38,9 @@
 
 	function activeCamera(){
 		if(pattern != '' && threeDModel != ''){
-			var body = document.getElementById('body');
-			while(body.childNodes[0]){
-				body.removeChild(body.childNodes[0]);
+			/*var body = document.getElementById('body');
+			while(body.firstChild){
+				body.removeChild(body.firstChild);
 			}
 			//console.log(body.childNodes);
 			var scene = document.createElement('a-scene');
@@ -68,7 +68,7 @@
 			cameraAEntity.setAttribute('camera','true');
 			scene.appendChild(cameraAEntity);
 			body.appendChild(scene);
-			console.log(body);
+			console.log(body);*/
 		}
 		else{
 			alert('Please enter complete url')
@@ -78,9 +78,15 @@
 		//}
 	}
 
+	function printOutTheScene(){
+		var event = document.getElementById('scene');
+		console.log(event);
+		//event.setAttribute('disabled','true');
+	}
+
 </script>
-  <body id = 'body' style='margin : 0px; overflow: hidden;'>
-  	<p>Your trained image pattern url: </p>
+  <body id = 'body' onload="printOutTheScene()" style='margin : 0px; overflow: hidden;'>
+  	<!--<p>Your trained image pattern url: </p>
 	<input type="text" id = "patternUrl">
 	<br>
 	<p>Your 3D model (gltf file only) url:</p>
@@ -88,7 +94,49 @@
 	<br>
 	<br>
 	<button onclick = "submitNewPatternAndThreeDModel()">Submit</button>
-	<button onclick = "activeCamera()">Active Camera</button>
+	<button onclick = "activeCamera()">Active Camera</button>-->
+  <a-scene id = 'scene' embedded arjs='sourceType: webcam;'>
+    <!--Enable this part to check out the helmet in glft type-->
+    <a-assets>
+      <a-asset-item id = "Object" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/0/scene.gltf'></a-asset-item>
+      <a-asset-item id = "Object1" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/1/scene.gltf'></a-asset-item>
+      <a-asset-item id = "Object2" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf'></a-asset-item>
+      <a-asset-item id = "Object3" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/3/scene.gltf'></a-asset-item>
+    </a-assets>
+    <!--Enable tihs part to check another 3d model in obj type-->
+  	<a-marker-camera type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/D.patt'>
+        <a-entity 
+            gltf-model="#Object"
+            position = "0 0 0"
+            scale = "0.01 0.01 0.01"
+            animation-mixer="loop:repeat">
+        </a-entity>
+  </a-marker-camera>
+  <a-marker-camera type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/dragon.patt'>
+        <a-entity 
+            gltf-model="#Object1"
+            position = "0 0 0"
+            scale = "0.01 0.01 0.01"
+            animation-mixer="loop:repeat">
+        </a-entity>
+  </a-marker-camera>
+  <a-marker-camera type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt'>
+        <a-entity 
+            gltf-model="#Object2"
+            position = "0 0 0"
+            scale = "0.01 0.01 0.01"
+            animation-mixer="loop:repeat">
+        </a-entity>
+  </a-marker-camera>
+  <a-marker-camera type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/rose.patt'>
+        <a-entity 
+            gltf-model="#Object3"
+            position = "0 0 0"
+            scale = "0.01 0.01 0.01"
+            animation-mixer="loop:repeat">
+        </a-entity>
+  </a-marker-camera>
+  <a-entity camera></a-entity>
+  </a-scene>
   </body>
-
 </html>
