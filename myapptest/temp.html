@@ -1,15 +1,70 @@
 <!doctype HTML>
 <html>
+
 <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"> </script>
 <script src="https://unpkg.com/aframe-animation-component@4.0.0-beta8/dist/aframe-animation-component.min.js"></script>
-  <body>
-  <nav>
-   <ul>
-     <li><a href="#">I want to create my own AR</a></li>
-     <li><a href="ar.html">I want to use my AR camera</a></li>
-   </ul>
-  </nav>
+
+<script>
+	var pattern;
+	var threeDModel;
+
+	function submitNewPatternAndThreeDModel(){
+		var patternUrl = document.getElementById('patternUrl');
+		var threeDmodeUrl = document.getElementById('threeDmodelUrl');
+		console.log(patternUrl);
+		console.log(threeDmodeUrl);
+
+		if(patternUrl.value == "" && threeDmodeUrl.value == ""){
+			alert('Pattern Url and 3D model Url cannot be empty');
+		}
+		else if(patternUrl.value == ""){
+			alert('Pattern Url cannot be empty!');
+		}
+		else if(threeDmodeUrl.value == ""){
+			alert('3D model Url cannot be empty!');
+		}
+		else{
+			console.log('assign data:');
+			pattern = patternUrl.value;
+			threeDModel = threeDmodeUrl.value;
+			console.log(pattern);
+			console.log(threeDModel);
+		}
+	}
+
+	function activeCamera(){
+		if(pattern != '' && threeDModel != ''){
+			var body = document.getElementById('body');
+			console.log(body);
+			//console.log(body.childNodes);
+			var scene = document.createElement('a-scene');
+			console.log(scene);
+			scene.setAttribute('embedded','true');
+			scene.setAttribute('arjs','sourceType: webcam;');
+			var assets = document.createElement('a-ssets');
+		}
+		else{
+			alert('Please complete the url')
+		}
+		//while(body.childNodes[0]){
+
+		//}
+	}
+
+</script>
+  <body id = 'body'>
+  	<p>Your trained image pattern url: </p>
+	<input type="text" id = "patternUrl">
+	<br>
+	<p>Your 3D model (gltf file only) url:</p>
+	<input type="text" id = 'threeDmodelUrl'>
+	<br>
+	<br>
+	<button onclick = "submitNewPatternAndThreeDModel()">Submit</button>
+	<button onclick = "activeCamera()">Active Camera</button>
+
   </body>
+
 </html>
