@@ -33,6 +33,9 @@ An web-based application that will allow students to view 3D models through augm
 - make changes necessary to CS252_Project/myapptest/index.html
 - go to CS252_Project directory and run firebase deploy again to push it to Firebase Hosting
 
+### Pattern making
+- submit image files here to create new patterns: https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html
+
 ---
 
 ## TODO List 
