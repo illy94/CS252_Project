@@ -2,7 +2,7 @@
 
 An web-based application that will allow students to view 3D models through augmented reality. This will allow them to orientate the models as they wish while the teacher of the class explains it to them. 
 
-Current host link: cs252-ar.firebaseapp.com
+Current host link: https://cs252-ar.firebaseapp.com/
 
 ---
 
