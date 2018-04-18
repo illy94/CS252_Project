@@ -11,7 +11,7 @@
     <a-scene embedded arjs='sourceType: webcam;'>
     <!--Enable this part to check out the helmet in glft type-->
     <a-assets>
-      <a-asset-item src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf'></a-asset-item>
+      <a-asset-item id = "Object" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf'></a-asset-item>
     </a-assets>
     <!--Enable tihs part to check another 3d model in obj type-->
   	<a-marker-camera type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt'>
@@ -29,7 +29,7 @@
             scale = "0.01 0.01 0.01"
             animation-mixer="loop:repeat"></a-entity>
   </a-marker-camera>
-
+  <a-entity text="text: HELLO!; color: #333" position="0 0 -5"></a-entity>
   <a-entity camera></a-entity>
   </a-scene>
   </body>
