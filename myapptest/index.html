@@ -1,74 +1,10 @@
 <!doctype HTML>
 <html>
-<head>
-  <meta charset="utf-8"/>
-</head>
-<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
-<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"> </script>
-<script src="https://unpkg.com/aframe-animation-component@4.0.0-beta8/dist/aframe-animation-component.min.js"></script>
-  <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-    <!--Enable this part to check out the helmet in glft type-->
-    <!--<a-assets>
-      <a-asset-item id = "Object" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/0/scene.gltf'></a-asset-item>
-    </a-assets>
-    <!--Enable tihs part to check another 3d model in obj type-->
-  	<!--<a-marker-camera type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt'>
-         <!--<a-entity 
-            obj-model = "obj: url(3dmodels/obj/0/Zebra.obj); mtl: url(3Dmodels/obj3D/Zebra.mtl)" 
-            position = "0 0 0"
-            scale = "0.1 0.1 0.1">
-        </a-entity>-->
-        <!--<a-box position='0 0.5 0' material='opacity: 0.5; color: black;' ></a-box>-->
-        <!-- define your gltf asset -->
-        <!-- use your gltf model -->
-        <!--<a-entity 
-            gltf-model="#Object"
-            position = "0 0 0"
-            scale = "0.01 0.01 0.01"
-            animation-mixer="loop:repeat"></a-entity>
-  </a-marker-camera>-->
-  <a-assets>
-      <a-asset-item id = "Object" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/0/scene.gltf'></a-asset-item>
-      <a-asset-item id = "Object1" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/1/scene.gltf'></a-asset-item>
-      <a-asset-item id = "Object2" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf'></a-asset-item>
-      <a-asset-item id = "Object3" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/3/scene.gltf'></a-asset-item>
-    </a-assets>
-    <!--Enable tihs part to check another 3d model in obj type-->
-    <a-marker type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/D.patt'>
-        <a-entity 
-            gltf-model="#Object"
-            position = "0 0 0"
-            scale = "0.1 0.1 0.1"
-            animation-mixer="loop:repeat">
-        </a-entity>
-  </a-marker>
-  <a-marker type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/dragon.patt'>
-        <a-entity 
-            gltf-model="#Object1"
-            position = "0 0 0"
-            scale = "0.1 0.1 0.1"
-            animation-mixer="loop:repeat">
-        </a-entity>
-  </a-marker>
-  <a-marker type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt'>
-        <a-entity 
-            gltf-model="#Object2"
-            position = "0 0 0"
-            scale = "0.01 0.01 0.01"
-            animation-mixer="loop:repeat">
-        </a-entity>
-  </a-marker>
-  <a-marker type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/rose.patt'>
-        <a-entity 
-            gltf-model="#Object3"
-            position = "0 0 0"
-            scale = "1 1 1"
-            animation-mixer="loop:repeat">
-        </a-entity>
-  </a-marker>
-  <a-entity camera></a-entity>
-  </a-scene>
+  <head>
+  	<title>test page</title>
+  </head>
+  <body bgcolor = "grey">
+  	<h1>this is a test page</h1><br>
+  	<a href="AR.html">click me to start camera</a>
   </body>
 </html>
