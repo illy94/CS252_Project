@@ -26,13 +26,13 @@ Current host link: https://cs252-ar.firebaseapp.com/
 ## Notes for Developers 
 
 ### Local
-- to run the app locally we have to download Node.js
+- to run the app locally we have to download Node.js and install firebase using *npm install -g firebase-tools*
 - go to the CS252_Project/myapptest directory
-- run node app.js 
-- then go to your local browser and use http://localhost:*portnumber* (where *portnumber* is based on what is mentioned in the command line)
+- run *firebase serve -p portnumber*
+- then go to your local browser and use http://localhost:portnumber
   
 ### Online
-- make changes necessary to CS252_Project/myapptest/index.html
+- make changes necessary to items in CS252_Project/myapptest directory
 - go to CS252_Project directory and run firebase deploy again to push it to Firebase Hosting
 
 ### Pattern making
