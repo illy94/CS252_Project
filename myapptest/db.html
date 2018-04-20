@@ -1,0 +1,62 @@
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDWgofB00cK2UVeEN8EPf3ltTCPlrEMBKw",
+    authDomain: "cs252-ar.firebaseapp.com",
+    databaseURL: "https://cs252-ar.firebaseio.com",
+    projectId: "cs252-ar",
+    storageBucket: "cs252-ar.appspot.com",
+    messagingSenderId: "1074716148069"
+  };
+  firebase.initializeApp(config);
+
+  Firebaseapp.prototype.init = function() {
+    this.INDEXDB_VERSION = 1;
+  }
+
+  Firebaseapp.prototype.saveImageDB = function(image, imageName, isSave){
+    if(indexedDB) {
+              var request = indexedDB.open(this.INDEXDB_DB_NAME , this.INDEXDB_VERSION); // request to access databse
+              var objectName = this.INDEXDB_STORE
+              request.onupgradeneeded = function(){  //if new DB or upgrade vrsion
+                  var db = request.result; //db obejct
+                  var store  = db.createObjectStore(objectName, {keyPath :"uid"}); // new object about the DB
+              }
+              request.onsuccess = function() {  // If request successed
+                  var db = request.result;
+                  var tx = db.transaction(objectName, "readwrite"); //get the transaction as readwrtie
+                  var store = tx.objectStore(objectName);
+                  store.get(user.uid).onsuccess = function(event){  //read data using url
+                      var data = event.target.result;
+                      console.log('IndexedDB query result : ', data);
+                      console.log('saveUserAtIndexedDB isSave parameter', isSave);
+                      if(!data){  //if there is no data
+                          store.put({
+                              uid: image.uid
+                              , photoURL : image.photoURL ? user.photoURL : ''
+                              , threedURL : image.threeDURL ? user.threeDURL : ''
+                              , displayName : imageName ? imageName : user.displayName
+                              , isSave : false
+                          });
+                      }
+                      if(data && isSave){  // 데이터가 존재하고 isSave 파라미터 true이면 데이터를 업데이트
+                          store.put({
+                            uid: image.uid
+                            , photoURL : image.photoURL ? user.photoURL : ''
+                            , threedURL : image.threeDURL ? user.threeDURL : ''
+                            , displayName : imageName ? imageName : user.displayName
+                              , isSave : true
+                          });
+                      }
+                  }
+                  tx.oncomplete = function() {
+                      console.log('IndexedDB complete transaction')
+                      db.close();
+                  };
+              }
+          }
+      }
+    }
+  }
+</script>
