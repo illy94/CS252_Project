@@ -13,6 +13,8 @@
   };
 
   function setUpUrls(){
+    var object = document.querySelector("object2");
+    console.log(object);
     /*var object = document.getElementById("Object2");
     console.log(object);
     var marker = document.getElementById("marker2");
@@ -73,15 +75,15 @@
         </a-entity>
   </a-marker>
   <a-marker id= 'marker2' type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt'>
-        <a-entity 
+        <a-entity
             gltf-model="#Object2"
             position = "0 0 0"
             scale = "0.01 0.01 0.01"
             animation-mixer="loop:repeat">
         </a-entity>
   </a-marker>
-  <a-marker id = 'marker3'type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/rose.patt'>
-        <a-entity 
+  <a-marker id = 'marker3' type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/rose.patt'>
+        <a-entity
             gltf-model="#Object3"
             position = "0 0 0"
             scale = "1 1 1"

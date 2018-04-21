@@ -7,136 +7,31 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"> </script>
 <script src="https://unpkg.com/aframe-animation-component@4.0.0-beta8/dist/aframe-animation-component.min.js"></script>
+<script> 
+  window.onload = function() {
+    setUpUrls();
+  };
 
-<script>
-	var pattern;
-	var threeDModel;
-	var temp;
-	function submitNewPatternAndThreeDModel(){
-		var patternUrl = document.getElementById('patternUrl');
-		var threeDmodeUrl = document.getElementById('threeDmodelUrl');
-		console.log(patternUrl);
-		console.log(threeDmodeUrl);
-
-		if(patternUrl.value == "" && threeDmodeUrl.value == ""){
-			alert('Pattern Url and 3D model Url cannot be empty');
-		}
-		else if(patternUrl.value == ""){
-			alert('Pattern Url cannot be empty!');
-		}
-		else if(threeDmodeUrl.value == ""){
-			alert('3D model Url cannot be empty!');
-		}
-		else{
-			console.log('assign data:');
-			pattern = patternUrl.value;
-			threeDModel = threeDmodeUrl.value;
-			console.log(pattern);
-			console.log(threeDModel);
-		}
-	}
-
-	function activeCamera(){
-		if(pattern != '' && threeDModel != ''){
-			/*var body = document.getElementById('body');
-			while(body.firstChild){
-				body.removeChild(body.firstChild);
-			}
-			//console.log(body.childNodes);
-			var scene = document.createElement('a-scene');
-			scene.setAttribute('embedded','true');
-			scene.setAttribute('arjs','sourceType: webcam;');
-			//create the assets for 3d models
-			var assets = document.createElement('a-assets');
-			var assetItem = document.createElement("a-asset-item");
-			assetItem.setAttribute('id','Object');
-			assetItem.setAttribute('src',threeDModel);
-			assets.appendChild(assetItem);
-			scene.appendChild(assets);
-			//create marker camera
-			var markerCamer = document.createElement('a-marker-camera');
-			markerCamer.setAttribute('type','pattern');
-			markerCamer.setAttribute('url',pattern);
-			var aEntity = document.createElement('a-entity');
-			aEntity.setAttribute('gltf-model','#Object');
-			aEntity.setAttribute('position','0 0 0');
-			aEntity.setAttribute('scale','0.01 0.01 0.01');
-			aEntity.setAttribute('animation-mixer','loop:repeat');
-			markerCamer.appendChild(aEntity);
-			scene.appendChild(markerCamer);
-			var cameraAEntity = document.createElement('a-entity');
-			cameraAEntity.setAttribute('camera','true');
-			scene.appendChild(cameraAEntity);
-			body.appendChild(scene);
-			console.log(body);*/
-		}
-		else{
-			alert('Please enter complete url')
-		}
-		//while(body.childNodes[0]){
-
-		//}
-	}
-
-	function printOutTheScene(){
-		var event = document.getElementById('scene');
-		console.log(event);
-		//event.setAttribute('disabled','true');
-	}
-
+  function setUpUrls(){
+    var object = document.querySelector("object2");
+    console.log(object);
+    /*var object = document.getElementById("Object2");
+    console.log(object);
+    var marker = document.getElementById("marker2");
+    console.log(marker);
+    let markerUrl = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt';
+    let threeDmodelUrl = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf';
+    object.src = threeDmodelUrl;
+    marker.url = markerUrl;
+    console.log(object);
+    console.log(marker);*/
+  }
 </script>
-  <body id = 'body' onload="printOutTheScene()" style='margin : 0px; overflow: hidden;'>
-  	<!--<p>Your trained image pattern url: </p>
-	<input type="text" id = "patternUrl">
-	<br>
-	<p>Your 3D model (gltf file only) url:</p>
-	<input type="text" id = 'threeDmodelUrl'>
-	<br>
-	<br>
-	<button onclick = "submitNewPatternAndThreeDModel()">Submit</button>
-	<button onclick = "activeCamera()">Active Camera</button>-->
-  <a-scene id = 'scene' embedded arjs='sourceType: webcam;'>
-    <!--Enable this part to check out the helmet in glft type-->
-    <a-assets>
-      <a-asset-item id = "Object" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/0/scene.gltf'></a-asset-item>
-      <a-asset-item id = "Object1" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/1/scene.gltf'></a-asset-item>
-      <a-asset-item id = "Object2" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf'></a-asset-item>
-      <a-asset-item id = "Object3" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/3/scene.gltf'></a-asset-item>
-    </a-assets>
-    <!--Enable tihs part to check another 3d model in obj type-->
-  	<a-marker-camera type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/D.patt'>
-        <a-entity 
-            gltf-model="#Object"
-            position = "0 0 0"
-            scale = "0.01 0.01 0.01"
-            animation-mixer="loop:repeat">
-        </a-entity>
-  </a-marker-camera>
-  <a-marker-camera type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/dragon.patt'>
-        <a-entity 
-            gltf-model="#Object1"
-            position = "0 0 0"
-            scale = "0.01 0.01 0.01"
-            animation-mixer="loop:repeat">
-        </a-entity>
-  </a-marker-camera>
-  <a-marker-camera type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt'>
-        <a-entity 
-            gltf-model="#Object2"
-            position = "0 0 0"
-            scale = "0.01 0.01 0.01"
-            animation-mixer="loop:repeat">
-        </a-entity>
-  </a-marker-camera>
-  <a-marker-camera type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/rose.patt'>
-        <a-entity 
-            gltf-model="#Object3"
-            position = "0 0 0"
-            scale = "0.01 0.01 0.01"
-            animation-mixer="loop:repeat">
-        </a-entity>
-  </a-marker-camera>
-  <a-entity camera></a-entity>
+
+
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+  
   </a-scene>
   </body>
 </html>
