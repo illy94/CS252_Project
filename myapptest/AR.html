@@ -7,6 +7,26 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"> </script>
 <script src="https://unpkg.com/aframe-animation-component@4.0.0-beta8/dist/aframe-animation-component.min.js"></script>
+<script> 
+  window.onload = function() {
+    setUpUrls();
+  };
+
+  function setUpUrls(){
+    /*var object = document.getElementById("Object2");
+    console.log(object);
+    var marker = document.getElementById("marker2");
+    console.log(marker);
+    let markerUrl = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt';
+    let threeDmodelUrl = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf';
+    object.src = threeDmodelUrl;
+    marker.url = markerUrl;
+    console.log(object);
+    console.log(marker);*/
+  }
+</script>
+
+
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
     <!--Enable this part to check out the helmet in glft type-->
@@ -36,7 +56,7 @@
       <a-asset-item id = "Object3" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/3/scene.gltf'></a-asset-item>
     </a-assets>
     <!--Enable tihs part to check another 3d model in obj type-->
-    <a-marker type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/D.patt'>
+    <a-marker id= 'marker0' type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/D.patt'>
         <a-entity 
             gltf-model="#Object"
             position = "0 0 0"
@@ -52,7 +72,7 @@
             animation-mixer="loop:repeat">
         </a-entity>
   </a-marker>
-  <a-marker type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt'>
+  <a-marker id= 'marker2' type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt'>
         <a-entity 
             gltf-model="#Object2"
             position = "0 0 0"
@@ -60,7 +80,7 @@
             animation-mixer="loop:repeat">
         </a-entity>
   </a-marker>
-  <a-marker type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/rose.patt'>
+  <a-marker id = 'marker3'type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/rose.patt'>
         <a-entity 
             gltf-model="#Object3"
             position = "0 0 0"
