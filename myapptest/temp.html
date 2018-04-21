@@ -13,24 +13,72 @@
   };
 
   function setUpUrls(){
-    var object = document.querySelector("object2");
-    console.log(object);
-    /*var object = document.getElementById("Object2");
-    console.log(object);
-    var marker = document.getElementById("marker2");
-    console.log(marker);
-    let markerUrl = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt';
-    let threeDmodelUrl = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf';
-    object.src = threeDmodelUrl;
-    marker.url = markerUrl;
-    console.log(object);
-    console.log(marker);*/
+  	/*
+  	<a-assets>
+      <a-asset-item id = "object" src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf'></a-asset-item>
+    </a-assets>
+
+    <a-marker id= 'marker' type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt'>
+        <a-entity
+            gltf-model="#object"
+            position = "0 0 0"
+            scale = "0.01 0.01 0.01"
+            animation-mixer="loop:repeat">
+        </a-entity>
+ 	</a-marker>
+	*/
+  	//https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf
+  	//https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt
+  	var sceneEl = document.querySelector('#scene');
+  	AFRAME.registerComponent('do-something-once-loaded', {
+  	init: function () {
+    		// This will be called after the entity has properly attached and loaded.
+    		console.log('I am ready!');
+
+  		}
+  	});
+  	/***a-assets creation***/
+  	var assets = document.createElement('a-assets');
+  	//***a-asset-item creation***/
+  	var assetItem = document.createElement('a-asset-item');
+  	assetItem.setAttribute('id','object');
+  	assetItem.setAttribute('src','https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf');
+  	//append item to assets
+  	assets.appendChild(assetItem);
+  	console.log(assets);
+  	sceneEl.appendChild(assets);
+  	console.log(sceneEl);
+  	/***a-marker creation***/
+  	var marker = document.createElement('a-marker');
+  	marker.setAttribute('id', 'marker');
+  	marker.setAttribute('type', 'pattern');
+  	marker.setAttribute('url', 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt');
+  	/***entity creation start from here***/
+	var entityEl = document.createElement('a-entity');
+	entityEl.setAttribute('do-something-once-loaded', '');
+	entityEl.setAttribute('gltf-model','#object');
+	//entityEl.setAttribute('position', {x: 0, y: 0, z: 0});
+	//entityEl.setAttribute('scale', {x: 0.1, y:0.1, z: 0.1});
+	//faster way to do the same logic as above (directly change those in three.js)
+	entityEl.object3D.position.set(0, 0, 0);
+	entityEl.object3D.scale.set(0.1, 0.1, 0.1);
+	//entityEl.object3D.animation-mixer.loop.set('repeat');
+	entityEl.setAttribute('animation-mixer',{loop: 'repeat'});
+	//add entity to the scene
+	marker.appendChild(entityEl);
+	console.log(marker);
+	sceneEl.appendChild(assets);
+	sceneEl.appendChild(marker);
+	var entityElCamera = document.createElement('a-entity');
+	entityElCamera.setAttribute('camera',true);
+	sceneEl.appendChild(entityElCamera);
+	console.log(sceneEl);
   }
 </script>
 
 
   <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+    <a-scene id = 'scene' embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
   
   </a-scene>
   </body>
