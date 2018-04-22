@@ -17,7 +17,7 @@ Current host link: https://cs252-ar.firebaseapp.com/
 ## Technologies and Services
 
 - Node.js
-- MySQL
+- firebase.js
 - AR.js (AR library) 
 - Firebase (Web Hosting)
 
