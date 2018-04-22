@@ -18,6 +18,7 @@ Released   : 20081009
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="barrensavannah.css" />
 <title>AR World</title>
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 </head>
 
 <body>
@@ -46,14 +47,19 @@ Released   : 20081009
 
 			<h1>Upload links here!</h1>
 		<div class="contentText">
-			<form>
-			  Image Name:<br>
-			  <input type="text" name="imagename"><br>
-			  Image URL:<br>
-			  <input type="text" name="imageurl"><br>
-			  3D Model URL:<br>
-			  <input type="text" name="modelurl">
+			<pre id="image"></pre>
+		    <ul id = "list"></ul>
+
+		    <form>
+		      Image Name:<br>
+		      <input type="text" name="name" id="hello"><br>
+		      Image URL:<br>
+		      <input type="text" name="imageurl" id='imageurl'><br>
+		      3d URL:<br>
+		      <input type="text" name="tdurl" id='tdurl'><br>
 			</form>
+		      <button onclick="myFunction()">submit</button>
+		    <script src="app.js"></script>
 		</div>
 
 

@@ -50,7 +50,13 @@ dbRefObject.on('child_removed', snap => {
 
 //writeNewPost("fox", "http://www.purdue.edu", "http://www.purdue.edu")
 //writeNewPost(name, imageurl, tdurl)
+
 }());
+
+function myFunction(){
+  console.log("hi there")
+}
+
 
 function writeNewPost(name, imageurl, tdurl) {
   // A post entry.
