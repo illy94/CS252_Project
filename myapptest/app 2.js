@@ -8,12 +8,12 @@
 firebase.initializeApp(config);
 
 //Get Elements
-const preObject = document.getElementById('Users');
+const preObject = document.getElementById('image');
 const ulList = document.getElementById('list');
-//const name = document.getElementById('hello');
+const name = document.getElementById('hello');
 
 //Create references
-const dbRefObject = firebase.database().ref().child('Users');
+const dbRefObject = firebase.database().ref().child('image');
 //const dbRefList = dbRefObject.child('hobbies');
 
 //sync object changes
@@ -48,19 +48,17 @@ dbRefObject.on('child_removed', snap => {
 
 });*/
 
-//writeNewPost(document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value)
+//writeNewPost("fox", "http://www.purdue.edu", "http://www.purdue.edu")
 //writeNewPost(name, imageurl, tdurl)
 
 }());
 
 function myFunction(){
-  /*console.log(document.querySelector('#hello').value);
-  console.log(document.querySelector('#imageurl').value);
-  console.log(document.querySelector('#tdurl').value);*/
-  writeNewPost(document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+  console.log(document.querySelector('#hello'));
 }
 
-function writeNewPost(uname, upassword, uid, name, imageurl, tdurl) {
+
+function writeNewPost(name, imageurl, tdurl) {
   // A post entry.
   var postData = {
     iname: name,
@@ -69,12 +67,12 @@ function writeNewPost(uname, upassword, uid, name, imageurl, tdurl) {
   };
 
   // Get a key for a new Post.
-  var newPostKey = firebase.database().ref().child('Users').push().key;
+  var newPostKey = firebase.database().ref().child('image').push().key;
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
   var updates = {};
   updates['/image/' + newPostKey] = postData;
-  updates['/user-image/' + uname + '/' + upassword + '/' +  newPostKey] = postData;
+  updates['/user-image/' + name + '/' + newPostKey] = postData;
 
   return firebase.database().ref().update(updates);
 }
