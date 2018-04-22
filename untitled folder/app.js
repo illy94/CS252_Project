@@ -9,19 +9,27 @@ const config = {
 
   //get elements
   const preObject = document.getElementById('image');
-  const imageList = document.getElementById('dog');
-  const ulList  = document.getElementById('list');
 
   const dbRefObject = firebase.database().ref().child('image');
-  const dbRefODog = dbRefObject.child('dog');
-  const dbRefOList = dbRefObject.child('something');
-
   //sync preObject
   dbRefObject.on('value', snap => {
     console.log(snap.val() );
   });
+  //var Object = firebase.database().ref().child('image');
 
-  dbRefODog.on('child_added', snap => console.log(snap.val()));
+  var userRef = firebase.database().ref().child('image');
+
+  userRef.set ({
+   Dog: {
+      imageURL: "https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/0/scene.gltf"
+   },
+ });
+
+userRef.push ({
+   Cat: {
+      imageURL: "https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/0/scene.gltf"
+   },
+ });
 
   /*dbRefODog .on('child_added', snap => {
     const lx = document.createElement('lx');
