@@ -60,18 +60,7 @@ function myFunction(){
 
   writeNewPost(document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
-var newLoginKey;
-
-function login (uname, upassword) {
-  var postUsername = {
-    username: uname,
-    password: upassword
-  }
-
-  newLoginKey = firebase.database().ref().child('Users').push().key;
-}
-
-function writeNewPost(uname, upassword, uid, name, imageurl, tdurl) {
+function writeNewPost(uname, upassword, name, imageurl, tdurl) {
   // A post entry.
   var postData = {
     iname: name,
@@ -80,12 +69,12 @@ function writeNewPost(uname, upassword, uid, name, imageurl, tdurl) {
   };
 
   // Get a key for a new Post.
-  var newPostKey = firebase.database().ref().child('Users').push().key;
+  var newPostKey = firebase.database().ref().child('image').push().key;
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
   var updates = {};
   updates['/image/' + newPostKey] = postData;
-  updates['/user-image/' + uname + '/' + upassword + '/' +  newPostKey] = postData;
+  updates['/user-image/' + uname + '/' + upassword + '/' + newPostKey] = postData;
 
   return firebase.database().ref().update(updates);
 }
