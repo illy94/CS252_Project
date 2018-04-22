@@ -57,7 +57,18 @@ function myFunction(){
   /*console.log(document.querySelector('#hello').value);
   console.log(document.querySelector('#imageurl').value);
   console.log(document.querySelector('#tdurl').value);*/
+
   writeNewPost(document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+}
+var newLoginKey;
+
+function login (uname, upassword) {
+  var postUsername = {
+    username: uname,
+    password: upassword
+  }
+
+  newLoginKey = firebase.database().ref().child('Users').push().key;
 }
 
 function writeNewPost(uname, upassword, uid, name, imageurl, tdurl) {
