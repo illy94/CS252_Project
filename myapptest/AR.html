@@ -7,20 +7,68 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"> </script>
 <script src="https://unpkg.com/aframe-animation-component@4.0.0-beta8/dist/aframe-animation-component.min.js"></script>
-<script> 
+<script>
+  /*let arr = [{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/0/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/D.patt',position:'0 0 0',scale,'0.1 0.1 0.1'},{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/1/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/dragon.patt',position:'0 0 0',scale,'0.1 0.1 0.1'},{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.',position:'0 0 0',scale,'0.01 0.01 0.01'}]*/
+
   window.onload = function() {
+    //load data here!
     setUpUrls();
   };
 
+  //function to generate all marker
+  /*function createMultiMarker(object,marker){
+    var assets = document.querySelector('a-assets');
+    var scene = document.querySelector('a-scene');
+    for(var i = 1; i < arr.length; i++){
+      var tempObj = object.cloneNode(true);
+      var tempMar = marker.cloneNode(true);
+      tempObj.setAttribute('src',arr[i].src);
+      tempObj.setAttribute('id','object'+i);
+      tempMar.setAttribute('url',arr[i].url);
+      //console.log(marker.childNodes[1]);
+      //marker1.childNodes[1].setAttribute('gltf-model','#object1');
+      //console.log(tempMar.childNodes[1]);
+      assets.appendChild(tempObj);
+      console.log(assets);
+      tempMar.childNodes[1].setAttribute('gltf-model','#object'+i);
+      tempMar.childNodes[1].setAttribute('gltf-model','#object'+i);
+      tempMar.childNodes[1].setAttribute('position',arr[i].position);
+      tempMar.childNodes[1].setAttribute('scale',arr[i].scale);
+      scene.appendChild(tempMar);
+      //console.log(scene);
+    }
+    console.log(scene);
+  }*/
+
+  //function to set up all user preset urls
   function setUpUrls(){
-    console.log("hi");
+    console.log('setUpUrls');
     var object = document.querySelector('#object');
     var marker = document.querySelector('#marker');
-    var object1 = object;
-    console.log(object);
-    object..setAttribute('src','https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf')
-    marker.setAttribute('url','https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/D.patt');
-    // marker.setAttribute('url','');
+    //var object1 = object.cloneNode(true);
+    //var marker1 = marker.cloneNode(true);
+    //createMultiMarker(object,marker);
+    object.setAttribute('src','https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/1/scene.gltf');
+    marker.setAttribute('url','https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt');
+    //marker.childNodes[1].setAttribute('position','0 0 0');
+    //object.cloneNodes[1].setAttribute('scale','0.1 0.1 0.1');
+    /*//this part is the second marker
+    object1.setAttribute('src','https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf');
+    object1.setAttribute('id','object1');
+    marker1.setAttribute('url','https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt');
+    console.log(marker.childNodes[1]);
+    //marker1.childNodes[1].setAttribute('gltf-model','#object1');
+    console.log(marker1.childNodes[1]);
+    var assets = document.querySelector('a-assets');
+    assets.appendChild(object1);
+    console.log(assets);
+    marker1.childNodes[1].setAttribute('gltf-model','#object1');
+    marker1.childNodes[1].setAttribute('gltf-model','#object1');
+    var scene = document.querySelector('a-scene');
+    scene.appendChild(marker1);
+    console.log(scene);
+    //object1.setAttribute()
+    //marker.setAttribute('url','');
     /*var object = document.getElementById("Object2");
     console.log(object);
     var marker = document.getElementById("marker2");
@@ -79,18 +127,17 @@
   </a-marker>-->
 
   <a-assets>
-      <a-asset-item id = 'object' src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf'></a-asset-item>
+      <a-asset-item id = 'object' src = ''></a-asset-item>
     </a-assets>
-    <a-marker id= 'marker' type = 'pattern' url = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt'>
+      <a-entity camera></a-entity>
+    <a-marker id= 'marker' type = 'pattern' url = ''>
         <a-entity
-            id = 'marker'
             gltf-model="#object"
             position = "0 0 0"
-            scale = "0.1 0.1 0.1"
+            scale = "0.01 0.01 0.01"
             animation-mixer="loop:repeat">
         </a-entity>
   </a-marker>
-  <a-entity camera></a-entity>
   </a-scene>
   </body>
 </html>
