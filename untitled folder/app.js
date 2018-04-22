@@ -50,7 +50,13 @@ dbRefObject.on('child_removed', snap => {
 
 //writeNewPost("fox", "http://www.purdue.edu", "http://www.purdue.edu")
 //writeNewPost(name, imageurl, tdurl)
+
 }());
+
+function myFunction(){
+  console.log("hi there")
+}
+
 
 function writeNewPost(name, imageurl, tdurl) {
   // A post entry.
@@ -70,7 +76,3 @@ function writeNewPost(name, imageurl, tdurl) {
 
   return firebase.database().ref().update(updates);
 }
-
-document.addEventListener("click", function(){
-  console.log(document.getElementById("submit").innerHTML);
-});
