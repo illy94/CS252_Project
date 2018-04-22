@@ -76,7 +76,3 @@ function writeNewPost(name, imageurl, tdurl) {
 
   return firebase.database().ref().update(updates);
 }
-
-document.addEventListener("click", function(){
-  console.log(document.getElementById("submit").innerHTML);
-});
