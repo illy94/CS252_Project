@@ -58,26 +58,31 @@ function myFunction(){
   console.log(document.querySelector('#imageurl').value);
   console.log(document.querySelector('#tdurl').value);*/
 
-  writeNewPost(document.querySelector('#uname').value,document.querySelector('#upassword').value,document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+  writeNewPost(document.querySelector('#uname').value,document.querySelector('#upassword').value,document.querySelector('#Auth').value,document.querySelector('#imagepdf').value,document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
 
-function writeNewPost(uname, upassword, Auth, name, imageurl, tdurl) {
+function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
   // A post entry.
   var postData = {
     iname: name,
     iurl: imageurl,
-    turl: tdurl
+    turl: tdurl,
+    ipdf: imagepdf
   };
+
+  var auths = {
+    auth: Auth
+  }
 
   var secure = {
     upassword: {
       iname: name,
       iurl: imageurl,
-      turl: tdurl
+      turl: tdurl,
+      ipdf: imagepdf
     },
     auth: Auth
   }
-
 
 var newPostKey = firebase.database().ref().child('Users').push().key;
 
@@ -89,14 +94,22 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
       firebase.database().ref('/user-data/' + uname+ '/' + upassword).once("value",snapshot => {
         const userpw = snapshot.val();
         if(userpw) {
-          var newPostKey = firebase.database().ref().child('Users').push().key;
+          firebase.database().ref('/user-data/' + uname+ '/' +  Auth).once("value",snapshot => {
+            const userauth = snapshot.val();
+            if(userauth) {
+              var newPostKey = firebase.database().ref().child('Users').push().key;
 
-          // Write the new post's data simultaneously in the posts list and the user's post list.
-          var updates = {};
-          updates['/Users/' + newPostKey] = postData;
-          updates['/user-data/' + newPostKey] = secure;
-          //updates['/user-data/' + uname + '/' + upassword + '/' + Auth + '/' + newPostKey] = secure;
-          return firebase.database().ref().update(updates);
+              // Write the new post's data simultaneously in the posts list and the user's post list.
+              var updates = {};
+              updates['/Users/' + newPostKey] = postData;
+              updates['/user-data/' + uname + '/' + Auth +'/' + newPostKey] = auths;
+              updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
+              return firebase.database().ref().update(updates);
+            }
+            else {
+              console.log("Not allowed to upload");
+            }
+          });
         }
         else{
           console.log("wrong password");
@@ -110,6 +123,7 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
       // Write the new post's data simultaneously in the posts list and the user's post list.
       var updates = {};
       updates['/Users/' + newPostKey] = postData;
+      updates['/user-data/' + uname + '/' + Auth +'/' + newPostKey] = auths;
       updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
       return firebase.database().ref().update(updates);
     }
