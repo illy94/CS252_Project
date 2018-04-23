@@ -179,8 +179,8 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
         const userpw = snapshot.val();
         if(userpw) {
           //change back the input field to default status
-          document.getElementById('upassword').style.borderColor = 'lightgrey';
-          document.getElementById('passwordErr').innerHTML = '';
+          //document.getElementById('upassword').style.borderColor = 'lightgrey';
+          //document.getElementById('passwordErr').innerHTML = '';
 
           firebase.database().ref('/user-data/' + uname+ '/' +  Auth).once("value",snapshot => {
             const userauth = snapshot.val();
@@ -205,8 +205,8 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
         else{
           //passwor incorrect
           //console.log("wrong password");
-          document.getElementById('upassword').style.borderColor = "red";
-          document.getElementById('passwordErr').innerHTML = '&#9747; Wrong Password';
+          //document.getElementById('upassword').style.borderColor = "red";
+          //document.getElementById('passwordErr').innerHTML = '&#9747; Wrong Password';
 
         }
       });

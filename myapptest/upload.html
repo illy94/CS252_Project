@@ -51,12 +51,16 @@ Released   : 20081009
 		    <ul id = "list"></ul>
 
 		    <form>
-		      Image Name:<br>
-		      <input type="text" name="name" id="hello"><br>
-		      Image URL:<br>
-		      <input type="text" name="imageurl" id='imageurl'><br>
-		      3d URL:<br>
-		      <input type="text" name="tdurl" id='tdurl'><br>
+		  	  <p>Authentication:</p>
+		      <input type="text" name="auth" id="Auth">
+		      <label id = 'authErr'></label>
+		      <p>Image Name:</p>
+		      <input type="text" name="imagename" id="hello">   
+		      <p>Image Pattern URL:</p>
+		      <input type="text" name="imageurl" id='imageurl'>
+		      <p>Image PDF URL:</p>
+		      <input type="text" name="imagepdf" id='imagepdf'>
+		      <p>3d URL:</p>
 			</form>
 		      <button onclick="myFunction()">submit</button>
 		    <script src="app.js"></script>
