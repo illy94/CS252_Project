@@ -160,9 +160,10 @@ function readNewPost(readname, readpassword) {
         if(passData){
           snapshot.forEach(function(childSnapshot) {
             console.log(childSnapshot.val().ipdf);
-            var currentDiv = document.getElementById("mainBox");
-            var newContent = document.createTextNode(childSnapshot.val().ipdf + '\n'); 
-            currentDiv.appendChild(newContent); 
+            var p = document.createElement("p");
+            var newContent = document.createTextNode("PDF of " + childSnapshot.val().iname + ": " + childSnapshot.val().ipdf); 
+            p.appendChild(newContent); 
+            document.getElementById("mainBox").appendChild(p);
           });
         } else {
           console.log("Password incorrect");
