@@ -147,6 +147,9 @@ function readNewPost(readname, readpassword) {
         if(passData){
           snapshot.forEach(function(childSnapshot) {
             console.log(childSnapshot.val().ipdf);
+            var currentDiv = document.getElementById("mainBox");
+            var newContent = document.createTextNode(childSnapshot.val().ipdf + '\n'); 
+            currentDiv.appendChild(newContent); 
           });
         } else {
           console.log("Password incorrect");
