@@ -41,10 +41,11 @@ Current host link: https://cs252-ar.firebaseapp.com/
 ---
 
 ## TODO List 
-- If the username and password cookie is not set, tell the user to login/signup first
-- Fix links to Login/Signup page
-- Show user if input is incorrect (login page and upload auth)
-- allow users to add new 3D models, animations and patterns to see through AR
-- make a database to save the links to those models, animations or patterns 
+- (CHRIS) Fix links to Login/Signup page
+- (CHRIS) Change downloads
+- (HJ) Show user if input is incorrect (login page and upload auth)
+- (ERIC) allow users to add new 3D models, animations and patterns to see through AR
+- (ERIC) make a database to save the links to those models, animations or patterns 
+- (ERIC) maybe add button to go back home from AR
 
 ---
