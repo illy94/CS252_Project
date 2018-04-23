@@ -46,5 +46,6 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - update the seen models through javascript
 - user authentication for logins
 - allow the user to upload and download the pdfs of the images as well for easy access
+- allow users to login in a seperate page
 
 ---
