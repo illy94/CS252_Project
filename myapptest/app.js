@@ -53,6 +53,82 @@ dbRefObject.on('child_removed', snap => {
 
 }());
 
+function signup() {
+  signupjs(document.querySelector('#uid').value, document.querySelector('#upassword').value, document.querySelector('#auth').value);
+}
+
+function signupjs(username, pw, auth) {
+  var structusers = {
+    password: {
+      tmp: 1
+    },
+    auth:auth
+  }
+
+  firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
+      const userData = snapshot.val();
+      if (userData){
+        console.log("exists!");
+        //PRINTERROR
+      }
+      else{
+        //ADDING DATA
+        var newPostKey = firebase.database().ref().child('Users').push().key;
+        // Write the new post's data simultaneously in the posts list and the user's post list.
+        var updates = {};
+        updates['/user-data/' + uname + newPostKey] = structusers;
+        return firebase.database().ref().update(updates);
+      }
+   });
+}
+
+function login() {
+  loginjs(document.querySelector('#uid').value, document.querySelector('#upassword').value);
+}
+
+function loginjs (username, password) {
+  firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
+      const userData = snapshot.val();
+      if (userData){
+        console.log("exists!");
+        firebase.database().ref('/user-data/' + uname+ '/' + upassword).once("value",snapshot => {
+          const userpw = snapshot.val();
+          if(userpw) {
+            //change back the input field to default status
+            document.getElementById('upassword').style.borderColor = 'lightgrey';
+            document.getElementById('passwordErr').innerHTML = '';
+            document.cookie = "username=" + username + ";" + "password=" + password + ";";
+          }
+          else{
+          //passwor incorrect
+          //console.log("wrong password");
+            document.getElementById('upassword').style.borderColor = "red";
+            document.getElementById('passwordErr').innerHTML = '&#9747; Wrong Password';
+          }
+        });
+      }
+      else {
+      //console.log("dont exists!");
+      }
+    });
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
 function myFunction(){
   /*console.log(document.querySelector('#hello').value);
   console.log(document.querySelector('#imageurl').value);
@@ -93,14 +169,14 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
       firebase.database().ref('/user-data/' + uname+ '/' + upassword).once("value",snapshot => {
         const userpw = snapshot.val();
         if(userpw) {
-          //change back the input field to default status 
+          //change back the input field to default status
           document.getElementById('upassword').style.borderColor = 'lightgrey';
           document.getElementById('passwordErr').innerHTML = '';
 
           firebase.database().ref('/user-data/' + uname+ '/' +  Auth).once("value",snapshot => {
             const userauth = snapshot.val();
             if(userauth) {
-             //change back the input field to default status 
+             //change back the input field to default status
               document.getElementById('Auth').style.borderColor = 'lightgrey';
               document.getElementById('authErr').innerHTML = '';
               var newPostKey = firebase.database().ref().child('Users').push().key;
@@ -161,8 +237,8 @@ function readNewPost(readname, readpassword) {
           snapshot.forEach(function(childSnapshot) {
             console.log(childSnapshot.val().ipdf);
             var currentDiv = document.getElementById("mainBox");
-            var newContent = document.createTextNode(childSnapshot.val().ipdf + '\n'); 
-            currentDiv.appendChild(newContent); 
+            var newContent = document.createTextNode(childSnapshot.val().ipdf + '\n');
+            currentDiv.appendChild(newContent);
           });
         } else {
           console.log("Password incorrect");
