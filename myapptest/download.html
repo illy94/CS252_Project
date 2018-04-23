@@ -17,7 +17,8 @@ Released   : 20081009
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="barrensavannah.css" />
-<title>AR World</title>
+<title>AR World Downloads</title>
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 </head>
 
 <body>
@@ -29,28 +30,27 @@ Released   : 20081009
 	</div>
     <div id="mainPicture">
     	<div class="picture">
-        	<div id="headerTitle">AR World</div>
-            <div id="headerSubtext">See the world through Augmented Reality!</div>
+        	<div id="headerTitle">Downloads</div>
+            <div id="headerSubtext">Download your image pdfs here!</div>
         </div>
     </div>
         <div class="contentBox">
     	<div class="innerBox">
-        	<h1>The Title of an Article</h1>
-          <div class="contentText">
-            <p>You may use this template on any site, anywhere, for free just please leave the link back to me in the footer.   This template validates XHTML Strict 1.0, CSS Validates as well; enjoy :) <a href="#">This is what a link looks like.</a></p>
-            <br />
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer mi. Vivamus sit amet neque vitae sapien bibendum sodales. Curabitur elementum. Duis imperdiet. Donec eleifend porttitor sapien. Praesent leo. Quisque auctor velit sed tellus. Suspendisse potenti. Aenean laoreet imperdiet nunc. Donec commodo suscipit dolor. Aenean nibh. Sed id odio. Aliquam lobortis risus ut felis. Sed vehicula pellentesque quam.</p><br />
 
-                <blockquote><p>This is a block quote, use it to include quotes from yourself or others.  All you have to do to include this element is wrap some text around blockquote tags</p></blockquote>
-                </div>
+			<h1>Download links here!</h1>
+		<div id="mainBox" class="contentText">
+			<pre id="Users"></pre>
+		    <ul id = "list"></ul>
 
-
-        <h1>Titles are H1 Tags</h1>
-            <div class="contentText"><p> Since the titles are H1 tags, try to include your keywords in them as search engines will look at them as being important content.</p><br />
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer mi. Vivamus sit amet neque vitae sapien bibendum sodales. Curabitur elementum. Duis imperdiet. Donec eleifend porttitor sapien. Praesent leo. Quisque auctor velit sed tellus. Suspendisse potenti. Aenean laoreet imperdiet nunc. Donec commodo suscipit dolor. Aenean nibh. Sed id odio. Aliquam lobortis risus ut felis. Sed vehicula pellentesque quam.</p><br />
-
-          <p>Vestibulum augue quam, interdum id, congue semper, convallis non, velit. Quisque augue tortor, tristique ac, scelerisque eget, aliquam id, sem. Aenean lorem. Fusce velit nibh, dapibus quis, laoreet nec, porta a, dui. Nullam ac urna. Proin eget elit. Nunc scelerisque venenatis urna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce congue, turpis ut commodo mattis, pede erat fringilla tellus, pulvinar suscipit odio lorem sed pede.</p></div>
-
+		    <form>
+          User Name:<br>
+		      <input type="text" name="name" id="readname"><br>
+          Password:<br>
+		      <input type="text" name="pass" id="readpassword"><br>
+			</form>
+		      <button onclick="readFunction()">submit</button>
+		    <script src="app.js"></script>
+		</div>
 
 
           <!-- Please leave this in place after all of your content - thanks :) -->

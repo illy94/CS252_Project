@@ -87,7 +87,6 @@ function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
 var newPostKey = firebase.database().ref().child('Users').push().key;
 
 firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
-
     const userData = snapshot.val();
     if (userData){
       console.log("exists!");
@@ -140,16 +139,37 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
       updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
       return firebase.database().ref().update(updates);
     }
-});
+  });
+}
 
-/*var updates = {};
-var newPostKey = firebase.database().ref().child('Users').push().key;
+function readFunction(){
+  /*console.log(document.querySelector('#hello').value);
+  console.log(document.querySelector('#imageurl').value);
+  console.log(document.querySelector('#tdurl').value);*/
 
-// Write the new post's data simultaneously in the posts list and the user's post list.
+  readNewPost(document.querySelector('#readname').value,document.querySelector('#readpassword').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+}
 
-updates['/Users/' + newPostKey] = postData;
-updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;*/
-
-  // Get a key for a new Post.
-
+function readNewPost(readname, readpassword) {
+  // A post entry.
+  firebase.database().ref('/user-data/' + readname).once("value",snapshot => {
+    const userData = snapshot.val();
+    if(userData){
+      firebase.database().ref('/user-data/' + readname + '/' + readpassword).once("value",snapshot => {
+        const passData = snapshot.val();
+        if(passData){
+          snapshot.forEach(function(childSnapshot) {
+            console.log(childSnapshot.val().ipdf);
+            var currentDiv = document.getElementById("mainBox");
+            var newContent = document.createTextNode(childSnapshot.val().ipdf + '\n'); 
+            currentDiv.appendChild(newContent); 
+          });
+        } else {
+          console.log("Password incorrect");
+        }
+      });
+    } else {
+      console.log("User doesn't exist");
+    }
+  });
 }
