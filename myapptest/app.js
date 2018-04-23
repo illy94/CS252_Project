@@ -159,17 +159,14 @@ function myFunction(){
 
 function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
   // A post entry.
-  var secure = {
-    upassword: {
-      iname: name,
-      iurl: imageurl,
-      turl: tdurl,
-      ipdf: imagepdf
-    },
-    auth: Auth
+  var postData = {
+    iname: name,
+    iurl: imageurl,
+    turl: tdurl,
+    ipdf: imagepdf
   }
 
-//var newPostKey = firebase.database().ref().child('Users').push().key;
+var newPostKey = firebase.database().ref().child('Users').push().key;
 
 firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
     const userData = snapshot.val();
@@ -188,7 +185,7 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
              //change back the input field to default status
               document.getElementById('Auth').style.borderColor = 'lightgrey';
               document.getElementById('authErr').innerHTML = '';
-              //var newPostKey = firebase.database().ref().child('Users').push().key;
+              var newPostKey = firebase.database().ref().child('Users').push().key;
               // Write the new post's data simultaneously in the posts list and the user's post list.
               var updates = {};
               updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
