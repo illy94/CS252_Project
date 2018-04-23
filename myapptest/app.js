@@ -60,7 +60,7 @@ function signup() {
 }
 
 function signupjs(username, pw, auth) {
-  
+
 
   var auths = {
     tmp: 1
@@ -154,7 +154,7 @@ function myFunction(){
   console.log(document.querySelector('#imageurl').value);
   console.log(document.querySelector('#tdurl').value);*/
 
-  writeNewPost(document.querySelector('#uname').value,document.querySelector('#upassword').value,document.querySelector('#Auth').value,document.querySelector('#imagepdf').value,document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+  writeNewPost(getUsername(),getPassword(),document.querySelector('#Auth').value,document.querySelector('#imagepdf').value,document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
 
 function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
