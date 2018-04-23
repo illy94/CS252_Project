@@ -68,7 +68,9 @@ function writeNewPost(uname, upassword, name, imageurl, tdurl) {
     iurl: imageurl,
     turl: tdurl
   };
-/*var updates = {};
+var updates = {};
+var newPostKey = firebase.database().ref().child('Users').push().key;
+
 firebase.database().ref().child("Users").orderByChild("iname").equalTo(uname).once("value",snapshot => {
     const userData = snapshot.val();
     if (userData){
@@ -83,7 +85,8 @@ firebase.database().ref().child("Users").orderByChild("iname").equalTo(uname).on
       updates['/user-image/' + uname + '/' + upassword + '/' + newPostKey] = postData;
 
     }
-});*/
+});
+/*
 var updates = {};
 var newPostKey = firebase.database().ref().child('Users').push().key;
 
@@ -92,6 +95,6 @@ var newPostKey = firebase.database().ref().child('Users').push().key;
 updates['/Users/' + newPostKey] = postData;
 updates['/user-image/' + uname + '/' + upassword + '/' + newPostKey] = postData;
 
-  // Get a key for a new Post.
+  // Get a key for a new Post.*/
   return firebase.database().ref().update(updates);
 }
