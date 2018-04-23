@@ -2,9 +2,9 @@ const http = require('http');
 const fs = require('fs');
 
 const hostname = '127.0.0.1';
-const port = 3002;
+const port = 3003;
 
-fs.readFile('index.html', (err,html) => {
+fs.readFile('AR.html', (err,html) => {
     if (err){
         throw err;
     }
