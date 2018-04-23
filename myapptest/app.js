@@ -236,9 +236,16 @@ function readNewPost(readname, readpassword) {
         if(passData){
           snapshot.forEach(function(childSnapshot) {
             console.log(childSnapshot.val().ipdf);
+<<<<<<< HEAD
             var currentDiv = document.getElementById("mainBox");
             var newContent = document.createTextNode(childSnapshot.val().ipdf + '\n');
             currentDiv.appendChild(newContent);
+=======
+            var p = document.createElement("p");
+            var newContent = document.createTextNode("PDF of " + childSnapshot.val().iname + ": " + childSnapshot.val().ipdf); 
+            p.appendChild(newContent); 
+            document.getElementById("mainBox").appendChild(p);
+>>>>>>> e4fb1395b37234a81190e9b60a7bd873d483e0de
           });
         } else {
           console.log("Password incorrect");
