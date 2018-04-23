@@ -58,43 +58,85 @@ function myFunction(){
   console.log(document.querySelector('#imageurl').value);
   console.log(document.querySelector('#tdurl').value);*/
 
-  writeNewPost(document.querySelector('#uname').value,document.querySelector('#upassword').value,document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+  writeNewPost(document.querySelector('#uname').value,document.querySelector('#upassword').value,document.querySelector('#Auth').value,document.querySelector('#imagepdf').value,document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
 
-function writeNewPost(uname, upassword, name, imageurl, tdurl) {
+function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
   // A post entry.
   var postData = {
     iname: name,
     iurl: imageurl,
-    turl: tdurl
+    turl: tdurl,
+    ipdf: imagepdf
   };
-var updates = {};
+
+  var auths = {
+    auth: Auth
+  }
+
+  var secure = {
+    upassword: {
+      iname: name,
+      iurl: imageurl,
+      turl: tdurl,
+      ipdf: imagepdf
+    },
+    auth: Auth
+  }
+
 var newPostKey = firebase.database().ref().child('Users').push().key;
 
-firebase.database().ref().child("Users").orderByChild("iname").equalTo(uname).once("value",snapshot => {
+firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
+
     const userData = snapshot.val();
     if (userData){
       console.log("exists!");
+      firebase.database().ref('/user-data/' + uname+ '/' + upassword).once("value",snapshot => {
+        const userpw = snapshot.val();
+        if(userpw) {
+          firebase.database().ref('/user-data/' + uname+ '/' +  Auth).once("value",snapshot => {
+            const userauth = snapshot.val();
+            if(userauth) {
+              var newPostKey = firebase.database().ref().child('Users').push().key;
+
+              // Write the new post's data simultaneously in the posts list and the user's post list.
+              var updates = {};
+              updates['/Users/' + newPostKey] = postData;
+              updates['/user-data/' + uname + '/' + Auth +'/' + newPostKey] = auths;
+              updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
+              return firebase.database().ref().update(updates);
+            }
+            else {
+              console.log("Not allowed to upload");
+            }
+          });
+        }
+        else{
+          console.log("wrong password");
+        }
+      });
     }
     else {
+      //console.log("dont exists!");
       var newPostKey = firebase.database().ref().child('Users').push().key;
 
       // Write the new post's data simultaneously in the posts list and the user's post list.
-
+      var updates = {};
       updates['/Users/' + newPostKey] = postData;
-      updates['/user-image/' + uname + '/' + upassword + '/' + newPostKey] = postData;
-
+      updates['/user-data/' + uname + '/' + Auth +'/' + newPostKey] = auths;
+      updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
+      return firebase.database().ref().update(updates);
     }
 });
-/*
-var updates = {};
+
+/*var updates = {};
 var newPostKey = firebase.database().ref().child('Users').push().key;
 
 // Write the new post's data simultaneously in the posts list and the user's post list.
 
 updates['/Users/' + newPostKey] = postData;
-updates['/user-image/' + uname + '/' + upassword + '/' + newPostKey] = postData;
+updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;*/
 
-  // Get a key for a new Post.*/
-  return firebase.database().ref().update(updates);
+  // Get a key for a new Post.
+
 }
