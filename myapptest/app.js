@@ -87,7 +87,6 @@ function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
 var newPostKey = firebase.database().ref().child('Users').push().key;
 
 firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
-
     const userData = snapshot.val();
     if (userData){
       console.log("exists!");
@@ -127,16 +126,41 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
       updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
       return firebase.database().ref().update(updates);
     }
-});
+  });
+}
 
-/*var updates = {};
-var newPostKey = firebase.database().ref().child('Users').push().key;
+function readFunction(){
+  /*console.log(document.querySelector('#hello').value);
+  console.log(document.querySelector('#imageurl').value);
+  console.log(document.querySelector('#tdurl').value);*/
 
-// Write the new post's data simultaneously in the posts list and the user's post list.
+  writeNewPost(document.querySelector('#readname').value,document.querySelector('#readpassword').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+}
 
-updates['/Users/' + newPostKey] = postData;
-updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;*/
-
-  // Get a key for a new Post.
-
+function readPost(uname, upassword) {
+  // A post entry.
+firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
+  const userData = snapshot.val();
+  if (userData){
+    console.log("exists!");
+    firebase.database().ref('/user-data/' + uname+ '/' + upassword).once("value",snapshot => {
+      const userpw = snapshot.val();
+        if(userpw) {
+          var newPostKey = firebase.database().ref().child('Users').push().key;
+          // Write the new post's data simultaneously in the posts list and the user's post list.
+          var updates = {};
+          updates['/Users/' + newPostKey] = postData;
+          updates['/user-data/' + uname + '/' + Auth +'/' + newPostKey] = auths;
+          updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
+          return firebase.database().ref().update(updates);
+        }
+        else{
+          console.log("wrong password");
+        }
+      });
+    }
+    else {
+      console.log("dont exists!");
+    }
+  });
 }
