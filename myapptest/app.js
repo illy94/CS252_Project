@@ -53,6 +53,8 @@ dbRefObject.on('child_removed', snap => {
 
 }());
 
+var newPostKey;
+
 function signup() {
   signupjs(document.querySelector('#uid').value, document.querySelector('#upassword').value, document.querySelector('#auth').value);
 }
@@ -73,7 +75,7 @@ function signupjs(username, pw, auth) {
       }
       else{
         //ADDING DATA
-        var newPostKey = firebase.database().ref().child('Users').push().key;
+        newPostKey = firebase.database().ref().child('Users').push().key;
         // Write the new post's data simultaneously in the posts list and the user's post list.
         var updates = {};
         updates['/user-data/' + uname + newPostKey] = structusers;
@@ -139,17 +141,6 @@ function myFunction(){
 
 function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
   // A post entry.
-  var postData = {
-    iname: name,
-    iurl: imageurl,
-    turl: tdurl,
-    ipdf: imagepdf
-  };
-
-  var auths = {
-    auth: Auth
-  }
-
   var secure = {
     upassword: {
       iname: name,
@@ -160,7 +151,7 @@ function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
     auth: Auth
   }
 
-var newPostKey = firebase.database().ref().child('Users').push().key;
+//var newPostKey = firebase.database().ref().child('Users').push().key;
 
 firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
     const userData = snapshot.val();
@@ -179,11 +170,9 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
              //change back the input field to default status
               document.getElementById('Auth').style.borderColor = 'lightgrey';
               document.getElementById('authErr').innerHTML = '';
-              var newPostKey = firebase.database().ref().child('Users').push().key;
+              //var newPostKey = firebase.database().ref().child('Users').push().key;
               // Write the new post's data simultaneously in the posts list and the user's post list.
               var updates = {};
-              updates['/Users/' + newPostKey] = postData;
-              updates['/user-data/' + uname + '/' + Auth +'/' + newPostKey] = auths;
               updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
               return firebase.database().ref().update(updates);
             }
@@ -205,15 +194,7 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
       });
     }
     else {
-      //console.log("dont exists!");
-      var newPostKey = firebase.database().ref().child('Users').push().key;
-
-      // Write the new post's data simultaneously in the posts list and the user's post list.
-      var updates = {};
-      updates['/Users/' + newPostKey] = postData;
-      updates['/user-data/' + uname + '/' + Auth +'/' + newPostKey] = auths;
-      updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
-      return firebase.database().ref().update(updates);
+      console.log("dont exists!");
     }
   });
 }
@@ -242,8 +223,8 @@ function readNewPost(readname, readpassword) {
             currentDiv.appendChild(newContent);
 =======
             var p = document.createElement("p");
-            var newContent = document.createTextNode("PDF of " + childSnapshot.val().iname + ": " + childSnapshot.val().ipdf); 
-            p.appendChild(newContent); 
+            var newContent = document.createTextNode("PDF of " + childSnapshot.val().iname + ": " + childSnapshot.val().ipdf);
+            p.appendChild(newContent);
             document.getElementById("mainBox").appendChild(p);
 >>>>>>> e4fb1395b37234a81190e9b60a7bd873d483e0de
           });
