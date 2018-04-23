@@ -19,7 +19,7 @@ body {
 
 #page
 {
-  display: block; 
+  display: block;
   height:auto;
   position: relative; 
   overflow: hidden; 
@@ -140,6 +140,11 @@ font-size:13px;
 line-height:24px;
 margin-left:13px;
 margin-right:13px;
+}
+
+.contentText input{
+	border-color: lightgrey;
+	border-style: solid;
 }
 
 #footer {

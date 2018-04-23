@@ -94,11 +94,17 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
       firebase.database().ref('/user-data/' + uname+ '/' + upassword).once("value",snapshot => {
         const userpw = snapshot.val();
         if(userpw) {
+          //change back the input field to default status 
+          document.getElementById('upassword').style.borderColor = 'lightgrey';
+          document.getElementById('passwordErr').innerHTML = '';
+
           firebase.database().ref('/user-data/' + uname+ '/' +  Auth).once("value",snapshot => {
             const userauth = snapshot.val();
             if(userauth) {
+             //change back the input field to default status 
+              document.getElementById('Auth').style.borderColor = 'lightgrey';
+              document.getElementById('authErr').innerHTML = '';
               var newPostKey = firebase.database().ref().child('Users').push().key;
-
               // Write the new post's data simultaneously in the posts list and the user's post list.
               var updates = {};
               updates['/Users/' + newPostKey] = postData;
@@ -107,12 +113,19 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
               return firebase.database().ref().update(updates);
             }
             else {
-              console.log("Not allowed to upload");
+              //authentication incorrect
+              //console.log("Not allowed to upload");
+              document.getElementById('Auth').style.borderColor = "yellow";
+              document.getElementById('authErr').innerHTML = '&#9888; Not Allowed to Modify';
             }
           });
         }
         else{
-          console.log("wrong password");
+          //passwor incorrect
+          //console.log("wrong password");
+          document.getElementById('upassword').style.borderColor = "red";
+          document.getElementById('passwordErr').innerHTML = '&#9747; Wrong Password';
+
         }
       });
     }
