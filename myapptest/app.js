@@ -7,6 +7,16 @@
 };
 firebase.initializeApp(config);
 
+//conflict
+const hostname = '127.0.0.1';
+const port = 3003;
+
+fs.readFile(index.html', (err,html) => {
+    if (err){
+        throw err;
+    }
+}
+//conflict
 //Get Elements
 const preObject = document.getElementById('Users');
 const ulList = document.getElementById('list');
@@ -33,6 +43,7 @@ dbRefObject.on('child_added', snap => {
   li.innerText = snap.val();
   li.id = snap.key;
   ulList.appendChild(li);
+>>>>>>> e69f03aefbf25d87a22c73fc03ddce729ddc6141
 
 });
 
