@@ -60,6 +60,7 @@ function myFunction(){
 
   writeNewPost(document.querySelector('#uname').value,document.querySelector('#upassword').value,document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
+
 function writeNewPost(uname, upassword, name, imageurl, tdurl) {
   // A post entry.
   var postData = {
@@ -67,38 +68,30 @@ function writeNewPost(uname, upassword, name, imageurl, tdurl) {
     iurl: imageurl,
     turl: tdurl
   };
+/*var updates = {};
+firebase.database().ref().child("Users").orderByChild("iname").equalTo(uname).once("value",snapshot => {
+    const userData = snapshot.val();
+    if (userData){
+      console.log("exists!");
+    }
+    else {
+      var newPostKey = firebase.database().ref().child('Users').push().key;
+
+      // Write the new post's data simultaneously in the posts list and the user's post list.
+
+      updates['/Users/' + newPostKey] = postData;
+      updates['/user-image/' + uname + '/' + upassword + '/' + newPostKey] = postData;
+
+    }
+});*/
+var updates = {};
+var newPostKey = firebase.database().ref().child('Users').push().key;
+
+// Write the new post's data simultaneously in the posts list and the user's post list.
+
+updates['/Users/' + newPostKey] = postData;
+updates['/user-image/' + uname + '/' + upassword + '/' + newPostKey] = postData;
 
   // Get a key for a new Post.
-  var newPostKey = firebase.database().ref().child('image').push().key;
-
-  // Write the new post's data simultaneously in the posts list and the user's post list.
-  var updates = {};
-  updates['/Users/' + newPostKey] = postData;
-  updates['/user-image/' + uname + '/' + upassword + '/' + newPostKey] = postData;
-
   return firebase.database().ref().update(updates);
-}
-
-function go() {
-  var userId = prompt('Username?', 'Guest');
-  checkIfUserExists(userId);
-}
-
-var USERS_LOCATION = 'https://cs252-ar.firebaseio.com';
-
-function userExistsCallback(userId, exists) {
-  if (exists) {
-    alert('user ' + userId + ' exists!');
-  } else {
-    alert('user ' + userId + ' does not exist!');
-  }
-}
-
-// Tests to see if /users/<userId> has any data.
-function checkIfUserExists(userId) {
-  var usersRef = new Firebase(USERS_LOCATION);
-  usersRef.child(userId).once('value', function(snapshot) {
-    var exists = (snapshot.val() !== null);
-    userExistsCallback(userId, exists);
-  });
 }
