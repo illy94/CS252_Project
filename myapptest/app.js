@@ -134,33 +134,26 @@ function readFunction(){
   console.log(document.querySelector('#imageurl').value);
   console.log(document.querySelector('#tdurl').value);*/
 
-  writeNewPost(document.querySelector('#readname').value,document.querySelector('#readpassword').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+  readNewPost(document.querySelector('#readname').value,document.querySelector('#readpassword').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
 
-function readPost(uname, upassword) {
+function readNewPost(readname, readpassword) {
   // A post entry.
-firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
-  const userData = snapshot.val();
-  if (userData){
-    console.log("exists!");
-    firebase.database().ref('/user-data/' + uname+ '/' + upassword).once("value",snapshot => {
-      const userpw = snapshot.val();
-        if(userpw) {
-          var newPostKey = firebase.database().ref().child('Users').push().key;
-          // Write the new post's data simultaneously in the posts list and the user's post list.
-          var updates = {};
-          updates['/Users/' + newPostKey] = postData;
-          updates['/user-data/' + uname + '/' + Auth +'/' + newPostKey] = auths;
-          updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
-          return firebase.database().ref().update(updates);
-        }
-        else{
-          console.log("wrong password");
+  firebase.database().ref('/user-data/' + readname).once("value",snapshot => {
+    const userData = snapshot.val();
+    if(userData){
+      firebase.database().ref('/user-data/' + readname + '/' + readpassword).once("value",snapshot => {
+        const passData = snapshot.val();
+        if(passData){
+          snapshot.forEach(function(childSnapshot) {
+            console.log(childSnapshot.val().ipdf);
+          });
+        } else {
+          console.log("Password incorrect");
         }
       });
-    }
-    else {
-      console.log("dont exists!");
+    } else {
+      console.log("User doesn't exist");
     }
   });
 }
