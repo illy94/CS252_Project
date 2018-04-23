@@ -1,0 +1,88 @@
+ <!--
+Design by Bryant Smith
+http://www.bryantsmith.com
+http://www.aszx.net
+email: template [-at-] bryantsmith [-dot-] com
+Released under Creative Commons Attribution 2.5 Generic.  In other words, do with it what you please; but please leave the link if you'd be so kind :)
+
+Name       : Barren Savannah
+Description: One column, with top naviation.  All divs, validations: XHTML Strict 1.0 & CSS
+Version    : 1.0
+Released   : 20081009
+-->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="barrensavannah.css" />
+<title>AR World Uploads</title>
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <div class="topNaviagationLink"><a href="index.html">Home</a></div>
+        <div class="topNaviagationLink"><a href="AR.html">AR</a></div>
+        <div class="topNaviagationLink"><a href="upload.html">Upload</a></div>
+        <div class="topNaviagationLink"><a href="download.html">Download</a></div>
+	</div>
+    <div id="mainPicture">
+    	<div class="picture">
+        	<div id="headerTitle">Uploads</div>
+            <div id="headerSubtext">Upload your image and 3D model links here!</div>
+        </div>
+    </div>
+        <div class="contentBox">
+    	<div class="innerBox">
+        	<h1>How to get links</h1>
+        <div class="contentText">
+            <p>1. Upload an image to get a .patt file <a href="https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html"> here. </a> </p>
+            <p>2. Upload your .patt and .gltf (Don't forget the bin file) to github.</p>
+            <p>3. Open the uploaded file on github.</p>
+			<p>4. Choose "Raw" at the top of the file on github.</p>
+			<p>5. Copy the url directly in your browser. </p>
+            <br /></div>
+
+			<h1>Upload links here!</h1>
+		<div class="contentText">
+			<pre id="Users"></pre>
+		    <ul id = "list"></ul>
+
+		    <form>
+          User Name:<br>
+		      <input type="text" name="name" id="uname"><br>
+          Password:<br>
+		      <input type="text" name="name" id="upassword"><br>
+		      Image Name:<br>
+		      <input type="text" name="name" id="hello"><br>
+		      Image URL:<br>
+		      <input type="text" name="imageurl" id='imageurl'><br>
+		      3d URL:<br>
+		      <input type="text" name="tdurl" id='tdurl'><br>
+			</form>
+		      <button onclick="myFunction()">submit</button>
+		    <script src="app.js"></script>
+		</div>
+
+
+          <!-- Please leave this in place after all of your content - thanks :) -->
+<div id="footer"><a href="http://www.aszx.net">web development</a> by <a href="http://www.bryantsmith.com">bryant smith</a></div>
+<!-- Please leave this in place after all of your content - thanks :) -->
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>

@@ -9,10 +9,8 @@
 <script src="https://unpkg.com/aframe-animation-component@4.0.0-beta8/dist/aframe-animation-component.min.js"></script>
 <script src="AR.js"></script>
 
-
   <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-    <!--Enable this part to check out the helmet in glft type-->
+    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>    <!--Enable this part to check out the helmet in glft type-->
   <a-assets>
       <a-asset-item id = 'object' src = 'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf'></a-asset-item>
     </a-assets>
@@ -21,7 +19,7 @@
         <a-entity
             gltf-model="#object"
             position = "0 0 0"
-            scale = "0.01 0.01 0.01"
+            scale = "0.1 0.1 0.1"
             animation-mixer="loop:repeat">
         </a-entity>
   </a-marker>
