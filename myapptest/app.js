@@ -179,7 +179,7 @@ function readFunction(){
   console.log(document.querySelector('#imageurl').value);
   console.log(document.querySelector('#tdurl').value);*/
 
-  readNewPost(document.querySelector('#readname').value,document.querySelector('#readpassword').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+  readNewPost(getUsername(),getPassword());  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
 
 function readNewPost(readname, readpassword) {
@@ -192,13 +192,21 @@ function readNewPost(readname, readpassword) {
         if(passData){
           snapshot.forEach(function(childSnapshot) {
             console.log(childSnapshot.val().ipdf);
-            var currentDiv = document.getElementById("mainBox");
-            var newContent = document.createTextNode(childSnapshot.val().ipdf);
-            currentDiv.appendChild(newContent);
-            var p = document.createElement("p");
-            var newContent = document.createTextNode("PDF of " + childSnapshot.val().iname + ": " + childSnapshot.val().ipdf);
-            p.appendChild(newContent);
-            document.getElementById("mainBox").appendChild(p);
+            // var currentDiv = document.getElementById("mainBox");
+            // var newContent = document.createTextNode(childSnapshot.val().ipdf);
+            // currentDiv.appendChild(newContent);
+            if (childSnapshot.val().ipdf){
+              var p = document.createElement("p");
+              p.style.fontSize = "small";
+              var newContent = document.createTextNode("PDF of " + childSnapshot.val().iname + ": " + childSnapshot.val().ipdf);
+              p.appendChild(newContent);
+
+              var br = document.createElement("br");
+
+              document.getElementById("mainBox").appendChild(p);
+              //document.getElementById("mainBox").appendChild(br);
+
+            }
           });
         } else {
           console.log("Password incorrect");
