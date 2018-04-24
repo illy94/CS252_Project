@@ -159,8 +159,8 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
             else {
               //authentication incorrect
               //console.log("Not allowed to upload");
-              document.getElementById('Auth').style.borderColor = "yellow";
-              document.getElementById('authErr').innerHTML = '&#9888; Not Allowed to Modify';
+              document.getElementById('Auth').style.borderColor = "red";
+              document.getElementById('authErr').innerHTML = '&#9888; Incorrect authentication password';
             }
           });
         }
