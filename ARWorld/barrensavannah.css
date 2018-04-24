@@ -37,7 +37,7 @@ width:121px;
 height: 35px;
 line-height: 35px;
 float:left;
-color:#000000;
+color:#061C37;
 font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
 }
 
@@ -45,7 +45,7 @@ font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
 .topNaviagationLink a
 {
 text-decoration:none;
-color:#000000;
+color:#DDDDDD;
 margin-bottom:0px;
 border-bottom:dashed 1px;
 }
@@ -75,14 +75,13 @@ background-color: rgba( 255, 255, 255, 0.5 );
 #mainPicture .picture
 {
 position:relative;
-width:660px;
-height:335px;
-top:5px;
-margin-left:5px;
+width:650px;
+height:325px;
+top:10px;
+margin-left:10px;
 background-image:url(mainImage.jpg);
 background-repeat:no-repeat;
 background-color: rgba( 255, 255, 255, 0.5 );
-
 }
 
 #headerTitle
@@ -92,7 +91,7 @@ text-align:left;
 top:14px;
 left:22px;
 font-size:27px;
-color:#FFFFFF;
+color:#061C37;
 font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
 
 }
@@ -114,8 +113,10 @@ font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
 margin-top:10px;
 width:670px;
 height:auto;
-background-color:#160306;
+background-color:#DDDDDD;
 padding-bottom:20px;
+background-color: rgba( 255, 255, 255, 0.8 );
+
 }
 
 .contentBox .innerBox
@@ -125,8 +126,9 @@ position:relative;
 width:650px;
 height:auto;
 top:10px;
-background-image:url(bg2.png);
-background-color:#FFFFFF;
+/*background-image:url(cbg.jpg);*/
+background-color:#1E90FF;
+background-color: rgba( 255, 255, 255, 0.8 );
 background-size: cover;
 background-repeat: no-repeat;
 }
@@ -184,7 +186,7 @@ border-bottom:dotted 2px;
 }
 a:visited
 {
-color:#793C06;
+color:#FFFFFF;
 
 }
 
@@ -192,15 +194,15 @@ color:#793C06;
 blockquote {
 	font-size:12px;
 	text-align:justify;
-	width:400px;
-	color:#000000;
+	width:500px;
+	color:#061C37;
 	padding:15px;
 	margin:10px;
 	font-family:Arial, Helvetica, sans-serif;
 	background-image:url(blockquote.png);
 	background-repeat:no-repeat;
 	border:dashed 1px;
-	border-color:#C87002;
+	border-color:#061C37;
 }
 
 
