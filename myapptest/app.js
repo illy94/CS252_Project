@@ -154,6 +154,8 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
               // Write the new post's data simultaneously in the posts list and the user's post list.
               var updates = {};
               updates['/user-data/' + uname + '/' + upassword + '/' + newPostKey] = postData;
+              document.getElementById('success').innerHTML = 'Update Successful';
+              document.getElementById('authErr').innerHTML = '';
               return firebase.database().ref().update(updates);
             }
             else {
