@@ -41,13 +41,18 @@ Current host link: https://cs252-ar.firebaseapp.com/
 ---
 
 ## TODO List 
-- (CHRIS) Fix links to Login/Signup page
-- (CHRIS) Change downloads
-- (HJ) Show user if input is incorrect (login page and upload auth)
+- ~~(CHRIS) Fix links to Login/Signup page~~
+- ~~(CHRIS) Change downloads~~
+- ~~(HJ) Show user if input is incorrect (login page and upload auth)~~
 - (HJ) Check for edge cases (uppercase and space)
+- (HJ) Show user if the upload is successful
 - (ERIC) allow users to add new 3D models, animations and patterns to see through AR
 - (ERIC) make a database to save the links to those models, animations or patterns 
 - (ERIC) maybe add button to go back home from AR
 - (ALL) clean up
+- Give trial 3D models to users if they haven't signed up or logged in
+- Login with Username and Auth bug
+- ~~Incorrect auth, still adding to database bug~~
+- (CHRIS) make the download page pdfs be hyperlinks
 
 ---

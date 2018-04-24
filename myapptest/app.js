@@ -94,11 +94,13 @@ function loginjs (username, password) {
             document.cookie = "cookie=" + username + ":" + password + ";";
             console.log("user: " + getUsername() + ", pass: " + getPassword());
             document.getElementById('success').innerHTML = 'Login Successful';
+            document.getElementById('pwErr').innerHTML = '';
           }
           else{
             console.log("Password Incorrect");
             document.getElementById('upassword').style.borderColor = "red";
             document.getElementById('pwErr').innerHTML = '&#9888; Password incorrect';
+            document.getElementById('success').innerHTML = '';
           }
         });
       }
@@ -157,8 +159,8 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
             else {
               //authentication incorrect
               //console.log("Not allowed to upload");
-              document.getElementById('Auth').style.borderColor = "yellow";
-              document.getElementById('authErr').innerHTML = '&#9888; Not Allowed to Modify';
+              document.getElementById('Auth').style.borderColor = "red";
+              document.getElementById('authErr').innerHTML = '&#9888; Incorrect authentication password';
             }
           });
         }
@@ -179,7 +181,7 @@ function readFunction(){
   console.log(document.querySelector('#imageurl').value);
   console.log(document.querySelector('#tdurl').value);*/
 
-  readNewPost(document.querySelector('#readname').value,document.querySelector('#readpassword').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+  readNewPost(getUsername(),getPassword());  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
 
 function readNewPost(readname, readpassword) {
@@ -192,13 +194,21 @@ function readNewPost(readname, readpassword) {
         if(passData){
           snapshot.forEach(function(childSnapshot) {
             console.log(childSnapshot.val().ipdf);
-            var currentDiv = document.getElementById("mainBox");
-            var newContent = document.createTextNode(childSnapshot.val().ipdf);
-            currentDiv.appendChild(newContent);
-            var p = document.createElement("p");
-            var newContent = document.createTextNode("PDF of " + childSnapshot.val().iname + ": " + childSnapshot.val().ipdf);
-            p.appendChild(newContent);
-            document.getElementById("mainBox").appendChild(p);
+            // var currentDiv = document.getElementById("mainBox");
+            // var newContent = document.createTextNode(childSnapshot.val().ipdf);
+            // currentDiv.appendChild(newContent);
+            if (childSnapshot.val().ipdf){
+              var p = document.createElement("p");
+              p.style.fontSize = "small";
+              var newContent = document.createTextNode("PDF of " + childSnapshot.val().iname + ": " + childSnapshot.val().ipdf);
+              p.appendChild(newContent);
+
+              var br = document.createElement("br");
+
+              document.getElementById("mainBox").appendChild(p);
+              //document.getElementById("mainBox").appendChild(br);
+
+            }
           });
         } else {
           console.log("Password incorrect");
