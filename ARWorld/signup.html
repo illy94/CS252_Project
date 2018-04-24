@@ -1,0 +1,82 @@
+ <!--
+Design by Bryant Smith
+http://www.bryantsmith.com
+http://www.aszx.net
+email: template [-at-] bryantsmith [-dot-] com
+Released under Creative Commons Attribution 2.5 Generic.  In other words, do with it what you please; but please leave the link if you'd be so kind :)
+
+Name       : Barren Savannah
+Description: One column, with top naviation.  All divs, validations: XHTML Strict 1.0 & CSS
+Version    : 1.0
+Released   : 20081009
+-->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="barrensavannah.css" />
+<title>AR World SignUp</title>
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <div class="topNaviagationLink"><a href="index.html">Home</a></div>
+        <div class="topNaviagationLink"><a href="AR.html">AR</a></div>
+        <div class="topNaviagationLink"><a href="upload.html">Upload</a></div>
+        <div class="topNaviagationLink"><a href="download.html">Download</a></div>
+        <div class="topNaviagationLink"><a href="login.html">Log In</a></div>
+        <div class="topNaviagationLink"><a href="signup.html">Sign Up</a></div>
+	</div>
+    <div id="mainPicture">
+    	<div class="picture">
+        	<div id="headerTitle">Sign Up</div>
+            <div id="headerSubtext">Sign up for an account here!</div>
+        </div>
+    </div>
+        <div class="contentBox">
+    	<div class="innerBox">
+        <div class="contentText">
+            <pre id="image"></pre>
+            <ul id = "list"></ul>
+
+            <form>
+              Username, Password and Authentication are CASE-SENSITIVE<br>
+              <!--Username and password will be the key to access your data <br>-->
+              Username :
+              <input type="text" name="username" id="uid"><br>
+              Password :
+              <input type="password" name="password" id='upassword'><br>
+              Authentication :
+              <input type="password" name="auth" id='auth'><br>
+              <label id = 'idErr'></label>
+              <label id = 'success'></label>
+              <br><input type="reset" value="Reset">
+            </form>
+            <button onclick="signup()">Sign Up</button>
+            <script src="app.js"></script>
+        </div>
+
+
+
+          <!-- Please leave this in place after all of your content - thanks :) -->
+<div id="footer"><a href="http://www.aszx.net">web development</a> by <a href="http://www.bryantsmith.com">bryant smith</a></div>
+<!-- Please leave this in place after all of your content - thanks :) -->
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>
