@@ -211,13 +211,18 @@ function readNewPost(readname, readpassword) {
             if (childSnapshot.val().ipdf){
               var p = document.createElement("p");
               p.style.fontSize = "small";
-              var newContent = document.createTextNode("PDF of " + childSnapshot.val().iname + ": " + childSnapshot.val().ipdf);
+              var newContent = document.createTextNode("Location of " + childSnapshot.val().iname + " PDF: " + childSnapshot.val().ipdf);
               p.appendChild(newContent);
+
+              var a = document.createElement("a");
+              var newLink = document.createTextNode("Link to " + childSnapshot.val().iname + " PDF")
+              a.setAttribute('href', childSnapshot.val().ipdf);
+              a.appendChild(newLink);
 
               var br = document.createElement("br");
 
               document.getElementById("mainBox").appendChild(p);
-              //document.getElementById("mainBox").appendChild(br);
+              document.getElementById("mainBox").appendChild(a);
 
             }
           });
