@@ -52,16 +52,16 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - ~~(CHRIS) make the download page pdfs be hyperlinks~~
 - ~~(HJ) Check for edge cases (uppercase and space)~~
 - ~~(ALL) clean up~~
-- ~~(ERIC) make a database to save the links to those models, animations or patterns ~~
+- ~~(ERIC) make a database to save the links to those models, animations or patterns~~
 - (HJ) Show user if the upload is successful and push reset button to the bottom
+- (HJ) agree on and change UI elements like text color and main background
 - (ERIC) allow users to add new 3D models, animations and patterns to see through AR
 - (ERIC) maybe add button to go back home from AR
-- Give trial 3D models to users if they haven't signed up or logged in
-- Login with Username and Auth bug
-- (ALL) agree on and change UI elements like text color and main background
-- Reset button looked pressed? 
-- Same auth and password bug? Technically it's okay
-- Check if image name or url has already been uploaded and disallow it. 
+- (CHRIS) Check if image name or url has already been uploaded and disallow it.
+- (IF TIME) Give trial 3D models to users if they haven't signed up or logged in
+- (IF TIME) Login with Username and Auth bug
+- (IF TIME) Reset button looked pressed? 
+- (IF TIME) Same auth and password bug? Technically it's okay
 - (*) Allow the user to remove a particular image!!!
 
 ---
