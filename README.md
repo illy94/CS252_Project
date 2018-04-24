@@ -50,5 +50,6 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - (ERIC) maybe add button to go back home from AR
 - (ALL) clean up
 - Give trial 3D models to users if they haven't signed up or logged in
+- Login with Username and Auth bug
 
 ---
