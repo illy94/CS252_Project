@@ -6,9 +6,9 @@ window.onload = function(){
 };
 
 var arr = [
-{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/0/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/D.patt',position:'0 0 0',scale:'0.1 0.1 0.1',rotation:'90 0 180'},
-{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/1/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/dragon.patt',position:'0 0 0',scale:'0.1 0.1 0.1',rotation:'0 0 0'},
-{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt',position:'0 0 0',scale:'0.01 0.01 0.01',rotation:'0 0 0'}   
+{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/0/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/D.patt',position:'0 0 0',scale:'0.1 0.1 0.1',rotation:'0 0 180'},
+{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/1/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/dragon.patt',position:'0 0 0',scale:'0.1 0.1 0.1',rotation:'90 0 180'},
+{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt',position:'0 0 0',scale:'0.01 0.01 0.01',rotation:'0 0 180'}   
 ]
 
 function setUpUrls(){
