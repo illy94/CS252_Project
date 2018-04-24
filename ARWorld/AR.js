@@ -1,8 +1,3 @@
-
-<<<<<<< HEAD
-window.onload = function(){
-   console.log('hi');
-=======
 var arr = [];
 
 /*window.onload = function(){
