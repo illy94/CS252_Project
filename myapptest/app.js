@@ -14,43 +14,6 @@ const ulList = document.getElementById('list');
 
 //Create references
 const dbRefObject = firebase.database().ref().child('Users');
-//const dbRefList = dbRefObject.child('hobbies');
-
-//sync object changes
-/*dbRefObject.on('value', snap => {
-  preObject.innerText = JSON.stringify(snap.val(), null, 3);
-});*/
-
-//dbRefObject.on('value', snap => console.log(snap.val()));
-//dbRefObject.on('child_added', snap => console.log(snap.val()));
-
-//
-//dbRefObject.on('child_removed', snap => console.log(snap.val()));
-
-/*
-dbRefObject.on('child_added', snap => {
-  const li = document.createElement('li');
-  li.innerText = snap.val();
-  li.id = snap.key;
-  ulList.appendChild(li);
-
-});
-
-dbRefObject.on('child_changed', snap => {
-  const liChanged = document.getElementById(snap.key);
-  liChanged.innerText = snap.val();
-
-});
-
-dbRefObject.on('child_removed', snap => {
-  const liRemove = document.getElementById(snap.key);
-  liRemove.innerText = snap.val();
-
-});*/
-
-//writeNewPost(document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value)
-//writeNewPost(name, imageurl, tdurl)
-
 }());
 
 var newPostKey;
@@ -60,8 +23,6 @@ function signup() {
 }
 
 function signupjs(username, pw, auth) {
-
-
   var auths = {
     tmp: 1
   }
@@ -71,6 +32,8 @@ function signupjs(username, pw, auth) {
       if (userData){
         console.log("exists!");
         //PRINTERROR
+        document.getElementById('uid').style.borderColor = "red";
+        document.getElementById('idErr').innerHTML = '&#9888; This ID already exists. You may try other one';
       }
       else{
         //ADDING DATA
@@ -79,6 +42,7 @@ function signupjs(username, pw, auth) {
         var updates = {};
         updates['/user-data/' + username + '/' + auth +'/' + newPostKey] = auths;
         updates['/user-data/' + username + '/' + pw + '/' + newPostKey] = auths;
+        document.getElementById('success').innerHTML = 'Succesfully Sign Up';
         return firebase.database().ref().update(updates);
       }
    });
@@ -129,20 +93,19 @@ function loginjs (username, password) {
             // document.getElementById('passwordErr').innerHTML = '';
             document.cookie = "cookie=" + username + ":" + password + ";";
             console.log("user: " + getUsername() + ", pass: " + getPassword());
+            document.getElementById('success').innerHTML = 'Login Successful';
           }
           else{
-
             console.log("Password Incorrect");
-
-          //passwor incorrect
-          //console.log("wrong password");
-            // document.getElementById('upassword').style.borderColor = "red";
-            // document.getElementById('passwordErr').innerHTML = '&#9747; Wrong Password';
+            document.getElementById('upassword').style.borderColor = "red";
+            document.getElementById('pwErr').innerHTML = '&#9888; Password incorrect';
           }
         });
       }
       else {
       //console.log("dont exists!");
+      document.getElementById('uid').style.borderColor = "red";
+      document.getElementById('idErr').innerHTML = '&#9888; User does not exist';
       }
     });
 }
@@ -200,16 +163,13 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
           });
         }
         else{
-          //passwor incorrect
           //console.log("wrong password");
-          //document.getElementById('upassword').style.borderColor = "red";
-          //document.getElementById('passwordErr').innerHTML = '&#9747; Wrong Password';
-
         }
       });
     }
     else {
       console.log("dont exists!");
+      //document.write("We don't have anything to show up");
     }
   });
 }
