@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "myapptest",
+    "public": "ARWorld",
     "ignore": [
       "firebase.json",
       "**/.*",
