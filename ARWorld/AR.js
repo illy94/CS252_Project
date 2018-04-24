@@ -1,7 +1,6 @@
 
 window.onload = function(){
-   console.log('hi');  
-   //console.log('bye');  
+   console.log('hi');
    setUpUrls();
 };
 
