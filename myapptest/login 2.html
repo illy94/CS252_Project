@@ -41,20 +41,15 @@ Released   : 20081009
             <ul id = "list"></ul>
 
             <form>
-              Username, Password and Authentication are CASE-SENSITIVE<br>
-              <!--Username and password will be the key to access your data <br>-->
-              Username :
+              Username:<br>
               <input type="text" name="username" id="uid"><br>
-              Password :
-              <input type="password" name="password" id='upassword'><br>
-              Authentication :
-              <input type="text" name="auth" id='auth'><br>
+              Password:<br>
+              <input type="text" name="password" id='upassword'><br>
               <label id = 'idErr'></label>
+              <label id = 'pwErr'></label>
               <label id = 'success'></label>
-
             </form>
-            <input type="reset">
-              <button onclick="signup()">Sign Up</button>
+              <button onclick="login()">Login</button>
             <script src="app.js"></script>
         </div>
 
