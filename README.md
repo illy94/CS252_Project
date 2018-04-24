@@ -44,6 +44,10 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - ~~(CHRIS) Fix links to Login/Signup page~~
 - ~~(CHRIS) Change downloads~~
 - ~~(HJ) Show user if input is incorrect (login page and upload auth)~~
+- ~~(CHRIS) Hide authentication during sign up as well~~
+- ~~(CHRIS) Sign up and Login page multiple statements bug~~
+- ~~Incorrect auth, still adding to database bug~~
+- ~~(HJ) make the password and auth columns * or dots to hide password and auth.~~
 - (HJ) Check for edge cases (uppercase and space)
 - (HJ) Show user if the upload is successful
 - (ERIC) allow users to add new 3D models, animations and patterns to see through AR
@@ -52,13 +56,10 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - (ALL) clean up
 - Give trial 3D models to users if they haven't signed up or logged in
 - Login with Username and Auth bug
-- ~~Incorrect auth, still adding to database bug~~
 - (CHRIS) make the download page pdfs be hyperlinks
-- ~~(HJ) make the password and auth columns * or dots to hide password and auth.~~
 - (ALL) agree on and change UI elements like text color and main background
 - Log in page reset button 
-- ~~(CHRIS) Hide authentication during sign up as well~~
-- ~~(CHRIS) Sign up page multiple statements bug~~
-- same auth and password bug? Technically it's okay
+- Reset button looked pressed? 
+- Same auth and password bug? Technically it's okay
 
 ---

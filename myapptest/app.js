@@ -93,24 +93,30 @@ function loginjs (username, password) {
           if(userpw) {
             //change back the input field to default status
             document.getElementById('upassword').style.borderColor = 'lightgrey';
+            document.getElementById('uid').style.borderColor = "lightgrey";
             // document.getElementById('passwordErr').innerHTML = '';
             document.cookie = "cookie=" + username + ":" + password + ";";
             console.log("user: " + getUsername() + ", pass: " + getPassword());
             document.getElementById('success').innerHTML = 'Login Successful';
+            document.getElementById('idErr').innerHTML = '';
             document.getElementById('pwErr').innerHTML = '';
           }
           else{
             console.log("Password Incorrect");
+            document.getElementById('uid').style.borderColor = "lightgrey";
             document.getElementById('upassword').style.borderColor = "red";
             document.getElementById('pwErr').innerHTML = '&#9888; Password incorrect';
             document.getElementById('success').innerHTML = '';
+            document.getElementById('idErr').innerHTML = '';
           }
         });
       }
       else {
-      //console.log("dont exists!");
-      document.getElementById('uid').style.borderColor = "red";
-      document.getElementById('idErr').innerHTML = '&#9888; User does not exist';
+        //console.log("dont exists!");
+        document.getElementById('uid').style.borderColor = "red";
+        document.getElementById('idErr').innerHTML = '&#9888; User does not exist';
+        document.getElementById('pwErr').innerHTML = '';
+        document.getElementById('success').innerHTML = '';
       }
     });
 }
