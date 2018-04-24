@@ -1,16 +1,24 @@
 
+<<<<<<< HEAD
 window.onload = function(){
    console.log('hi');
-   setUpUrls();
-};
+=======
+var arr = [];
 
-var arr = [
-{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/0/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/D.patt',position:'0 0 0',scale:'0.1 0.1 0.1',rotation:'0 0 180'},
-{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/1/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/dragon.patt',position:'0 0 0',scale:'0.1 0.1 0.1',rotation:'90 0 180'},
-{src:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/3dmodels/gltf/2/scene.gltf',url:'https://raw.githubusercontent.com/illy94/CS252_Project/master/myapptest/patterns/F.patt',position:'0 0 0',scale:'0.01 0.01 0.01',rotation:'0 0 180'}   
-]
+/*window.onload = function(){
+   console.log('hi');
+   arr = giveEric();
+   console.log(arr);
+   //console.log('bye');  
+>>>>>>> 22dbd862ecba0b5688d1538901bba58e6c470c2f
+   setUpUrls();
+};*/
+
+
 
 function setUpUrls(){
+    arr = giveEric();
+    console.log("hey:" + arr);
     console.log('setUpUrls');
     var object = document.querySelector('#object');
     var marker = document.querySelector('#marker');

@@ -239,8 +239,12 @@ function readNewPost(readname, readpassword) {
 }
 
 function giveEric(){
+<<<<<<< HEAD
   console.log('here');
   giveEric3D(getUsername(),getPassword());  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+=======
+ 	return giveEric3D(getUsername(),getPassword());  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+>>>>>>> 22dbd862ecba0b5688d1538901bba58e6c470c2f
 }
 
 
