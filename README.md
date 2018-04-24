@@ -61,5 +61,7 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - (ALL) agree on and change UI elements like text color and main background
 - Reset button looked pressed? 
 - Same auth and password bug? Technically it's okay
+- Check if image name or url has already been uploaded and disallow it. 
+- Allow the user to remove a particular image? 
 
 ---
