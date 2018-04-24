@@ -54,5 +54,6 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - Login with Username and Auth bug
 - ~~Incorrect auth, still adding to database bug~~
 - (CHRIS) make the download page pdfs be hyperlinks
+- ~~(HJ) make the password and auth columns * or dots to hide password and auth.~~
 
 ---
