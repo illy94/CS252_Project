@@ -34,6 +34,7 @@ function signupjs(username, pw, auth) {
         //PRINTERROR
         document.getElementById('uid').style.borderColor = "red";
         document.getElementById('idErr').innerHTML = '&#9888; This ID already exists. Please try another ID.';
+        document.getElementById('success').innerHTML = '';
       }
       else{
         //ADDING DATA
@@ -43,6 +44,8 @@ function signupjs(username, pw, auth) {
         updates['/user-data/' + username + '/' + auth +'/' + newPostKey] = auths;
         updates['/user-data/' + username + '/' + pw + '/' + newPostKey] = auths;
         document.getElementById('success').innerHTML = 'Succesfully Signed Up';
+        document.getElementById('idErr').innerHTML = '';
+        document.getElementById('uid').style.borderColor = "lightgrey";
         return firebase.database().ref().update(updates);
       }
    });

@@ -58,6 +58,7 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - (ALL) agree on and change UI elements like text color and main background
 - Log in page reset button 
 - ~~(CHRIS) Hide authentication during sign up as well~~
-- Sign up page multiple statements bug
+- ~~(CHRIS) Sign up page multiple statements bug~~
+- same auth and password bug? Technically it's okay
 
 ---
