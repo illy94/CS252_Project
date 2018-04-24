@@ -239,8 +239,7 @@ function readNewPost(readname, readpassword) {
 }
 
 function giveEric(){
-
-  giveEric3D(getUsername(),getPassword());  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+ 	return giveEric3D(getUsername(),getPassword());  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
 
 
@@ -287,6 +286,7 @@ function giveEric3D(readname, readpassword) {
             }*/
           });
           console.log(arr);
+          return arr;
         } else {
           console.log("Password incorrect");
         }
