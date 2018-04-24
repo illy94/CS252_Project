@@ -203,26 +203,28 @@ function readNewPost(readname, readpassword) {
       firebase.database().ref('/user-data/' + readname + '/' + readpassword).once("value",snapshot => {
         const passData = snapshot.val();
         if(passData){
+          var count = 0;
           snapshot.forEach(function(childSnapshot) {
             console.log(childSnapshot.val().ipdf);
             // var currentDiv = document.getElementById("mainBox");
             // var newContent = document.createTextNode(childSnapshot.val().ipdf);
             // currentDiv.appendChild(newContent);
             if (childSnapshot.val().ipdf){
+              count += 1;
               var p = document.createElement("p");
               p.style.fontSize = "small";
-              var newContent = document.createTextNode("Location of " + childSnapshot.val().iname + " PDF: " + childSnapshot.val().ipdf);
+              var newContent = document.createTextNode( count + ". Link to " + childSnapshot.val().iname + " pdf: ");
               p.appendChild(newContent);
 
               var a = document.createElement("a");
-              var newLink = document.createTextNode("Link to " + childSnapshot.val().iname + " PDF")
+              var newLink = document.createTextNode(childSnapshot.val().ipdf)
               a.setAttribute('href', childSnapshot.val().ipdf);
               a.appendChild(newLink);
 
               var br = document.createElement("br");
 
-              document.getElementById("mainBox").appendChild(p);
-              document.getElementById("mainBox").appendChild(a);
+              var line = document.getElementById("mainBox").appendChild(p);
+              line.appendChild(a);
 
             }
           });
