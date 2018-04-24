@@ -57,7 +57,7 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - ~~(HJ) make the password and auth columns * or dots to hide password and auth.~~
 - (ALL) agree on and change UI elements like text color and main background
 - Log in page reset button 
-- Hide authentication during sign up as well
+- ~~(CHRIS) Hide authentication during sign up as well~~
 - Sign up page multiple statements bug
 
 ---
