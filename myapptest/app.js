@@ -33,7 +33,7 @@ function signupjs(username, pw, auth) {
         console.log("exists!");
         //PRINTERROR
         document.getElementById('uid').style.borderColor = "red";
-        document.getElementById('idErr').innerHTML = '&#9888; This ID already exists. You may try other one';
+        document.getElementById('idErr').innerHTML = '&#9888; This ID already exists. Please try another ID.';
       }
       else{
         //ADDING DATA
@@ -42,7 +42,7 @@ function signupjs(username, pw, auth) {
         var updates = {};
         updates['/user-data/' + username + '/' + auth +'/' + newPostKey] = auths;
         updates['/user-data/' + username + '/' + pw + '/' + newPostKey] = auths;
-        document.getElementById('success').innerHTML = 'Succesfully Sign Up';
+        document.getElementById('success').innerHTML = 'Succesfully Signed Up';
         return firebase.database().ref().update(updates);
       }
    });
