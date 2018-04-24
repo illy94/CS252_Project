@@ -237,3 +237,62 @@ function readNewPost(readname, readpassword) {
     }
   });
 }
+
+function giveEric(){
+
+  giveEric3D(getUsername(),getPassword());  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+}
+
+
+function giveEric3D(readname, readpassword) {
+  // A post entry.
+  firebase.database().ref('/user-data/' + readname).once("value",snapshot => {
+    const userData = snapshot.val();
+    if(userData){
+      firebase.database().ref('/user-data/' + readname + '/' + readpassword).once("value",snapshot => {
+        const passData = snapshot.val();
+        if(passData){
+          var count = 0;
+          var arr= new Array();
+          var index = 0;
+          snapshot.forEach(function(childSnapshot) {
+          	if(childSnapshot.val().turl && childSnapshot.val().iurl){
+          		// console.log(childSnapshot.val().turl + ": " + childSnapshot.val().iurl)
+	          	var tempArr ={ src:childSnapshot.val().turl, url:childSnapshot.val().iurl};
+	          	arr.push(tempArr);
+	            //console.log(tempArr);
+        	} else {
+
+        	}
+            // var currentDiv = document.getElementById("mainBox");
+            // var newContent = document.createTextNode(childSnapshot.val().ipdf);
+            // currentDiv.appendChild(newContent);
+            /*if (childSnapshot.val().ipdf){
+              count += 1;
+              var p = document.createElement("p");
+              p.style.fontSize = "small";
+              var newContent = document.createTextNode( count + ". Link to " + childSnapshot.val().iname + " pdf: ");
+              p.appendChild(newContent);
+
+              var a = document.createElement("a");
+              var newLink = document.createTextNode(childSnapshot.val().ipdf)
+              a.setAttribute('href', childSnapshot.val().ipdf);
+              a.appendChild(newLink);
+
+              var br = document.createElement("br");
+
+              var line = document.getElementById("mainBox").appendChild(p);
+              line.appendChild(a);
+
+            }*/
+          });
+          console.log(arr);
+        } else {
+          console.log("Password incorrect");
+        }
+      });
+    } else {
+      console.log("User doesn't exist");
+    }
+  });
+}
