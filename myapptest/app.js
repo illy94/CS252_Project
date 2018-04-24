@@ -94,11 +94,13 @@ function loginjs (username, password) {
             document.cookie = "cookie=" + username + ":" + password + ";";
             console.log("user: " + getUsername() + ", pass: " + getPassword());
             document.getElementById('success').innerHTML = 'Login Successful';
+            document.getElementById('pwErr').innerHTML = '';
           }
           else{
             console.log("Password Incorrect");
             document.getElementById('upassword').style.borderColor = "red";
             document.getElementById('pwErr').innerHTML = '&#9888; Password incorrect';
+            document.getElementById('success').innerHTML = '';
           }
         });
       }
