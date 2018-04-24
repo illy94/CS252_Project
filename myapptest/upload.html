@@ -17,7 +17,7 @@ Released   : 20081009
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="barrensavannah.css" />
-<title>AR World Uploads</title>
+<title>AR World</title>
 <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 </head>
 
@@ -27,6 +27,8 @@ Released   : 20081009
         <div class="topNaviagationLink"><a href="AR.html">AR</a></div>
         <div class="topNaviagationLink"><a href="upload.html">Upload</a></div>
         <div class="topNaviagationLink"><a href="download.html">Download</a></div>
+        <div class="topNaviagationLink"><a href="login.html">Log In</a></div>
+        <div class="topNaviagationLink"><a href="signup.html">Sign Up</a></div>
 	</div>
     <div id="mainPicture">
     	<div class="picture">
@@ -47,27 +49,25 @@ Released   : 20081009
 
 			<h1>Upload links here!</h1>
 		<div class="contentText">
-			<pre id="Users"></pre>
+			<pre id="image"></pre>
 		    <ul id = "list"></ul>
+
 		    <form>
-          	  <p>User Name:</p>
-		      <input type="text" name="name" id="uname">
-          	  <p>Password:</p>
-		      <input type="text" name="pass" id="upassword">
-		      <label id = 'passwordErr'></label>
 		  	  <p>Authentication:</p>
-		      <input type="text" name="auth" id="Auth">
+		      <input type="password" name="auth" id="Auth">
 		      <label id = 'authErr'></label>
 		      <p>Image Name:</p>
-		      <input type="text" name="imagename" id="hello">   
+		      <input type="text" name="imagename" id="hello">
 		      <p>Image Pattern URL:</p>
 		      <input type="text" name="imageurl" id='imageurl'>
 		      <p>Image PDF URL:</p>
 		      <input type="text" name="imagepdf" id='imagepdf'>
 		      <p>3d URL:</p>
 		      <input type="text" name="tdurl" id='tdurl'><br>
+          <label id = 'success'></label>
+          <input type="reset">
 			</form>
-		      <button onclick="myFunction()">submit</button>
+        <button onclick="myFunction()">submit</button>
 		    <script src="app.js"></script>
 		</div>
 
@@ -77,15 +77,7 @@ Released   : 20081009
 <!-- Please leave this in place after all of your content - thanks :) -->
 
 
-
-
-
         </div>
-
-
-
-
-
 
     </div>
 

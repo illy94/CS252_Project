@@ -17,7 +17,7 @@ Released   : 20081009
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="barrensavannah.css" />
-<title>AR World Login</title>
+<title>AR World SignUp</title>
 <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 </head>
 
@@ -32,8 +32,8 @@ Released   : 20081009
 	</div>
     <div id="mainPicture">
     	<div class="picture">
-        	<div id="headerTitle">Login</div>
-            <div id="headerSubtext">Login to upload your pictures here!</div>
+        	<div id="headerTitle">Sign Up</div>
+            <div id="headerSubtext">Sign up for an account here!</div>
         </div>
     </div>
         <div class="contentBox">
@@ -43,16 +43,19 @@ Released   : 20081009
             <ul id = "list"></ul>
 
             <form>
-              Username:<br>
+              Username, Password and Authentication are CASE-SENSITIVE<br>
+              <!--Username and password will be the key to access your data <br>-->
+              Username :
               <input type="text" name="username" id="uid"><br>
-              Password:<br>
+              Password :
               <input type="password" name="password" id='upassword'><br>
+              Authentication :
+              <input type="password" name="auth" id='auth'><br>
               <label id = 'idErr'></label>
-              <label id = 'pwErr'></label>
               <label id = 'success'></label>
+              <br><input type="reset"> 
             </form>
-              <input type="reset">
-              <button onclick="login()">Login</button>
+            <button onclick="signup()">Sign Up</button>
             <script src="app.js"></script>
         </div>
 

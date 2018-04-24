@@ -41,9 +41,25 @@ Current host link: https://cs252-ar.firebaseapp.com/
 ---
 
 ## TODO List 
-- allow users to add new 3D models, animations and patterns to see through AR
-- make a database to save the links to those models, animations or patterns 
-- update the seen models through javascript
-- user authentication for logins
+- ~~(CHRIS) Fix links to Login/Signup page~~
+- ~~(CHRIS) Change downloads~~
+- ~~(HJ) Show user if input is incorrect (login page and upload auth)~~
+- ~~(CHRIS) Hide authentication during sign up as well~~
+- ~~(CHRIS) Sign up and Login page multiple statements bug~~
+- ~~Incorrect auth, still adding to database bug~~
+- ~~(HJ) make the password and auth columns * or dots to hide password and auth.~~
+- (HJ) Check for edge cases (uppercase and space)
+- (HJ) Show user if the upload is successful
+- (ERIC) allow users to add new 3D models, animations and patterns to see through AR
+- (ERIC) make a database to save the links to those models, animations or patterns 
+- (ERIC) maybe add button to go back home from AR
+- (ALL) clean up
+- Give trial 3D models to users if they haven't signed up or logged in
+- Login with Username and Auth bug
+- (CHRIS) make the download page pdfs be hyperlinks
+- (ALL) agree on and change UI elements like text color and main background
+- Log in page reset button 
+- Reset button looked pressed? 
+- Same auth and password bug? Technically it's okay
 
 ---
