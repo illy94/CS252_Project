@@ -50,18 +50,18 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - ~~(HJ) make the password and auth columns * or dots to hide password and auth.~~
 - ~~(CHRIS) Log in page reset button~~
 - ~~(CHRIS) make the download page pdfs be hyperlinks~~
-- (HJ) Check for edge cases (uppercase and space)
-- (HJ) Show user if the upload is successful
+- ~~(HJ) Check for edge cases (uppercase and space)~~
+- ~~(ALL) clean up~~
+- ~~(ERIC) make a database to save the links to those models, animations or patterns ~~
+- (HJ) Show user if the upload is successful and push reset button to the bottom
 - (ERIC) allow users to add new 3D models, animations and patterns to see through AR
-- (ERIC) make a database to save the links to those models, animations or patterns 
 - (ERIC) maybe add button to go back home from AR
-- (ALL) clean up
 - Give trial 3D models to users if they haven't signed up or logged in
 - Login with Username and Auth bug
 - (ALL) agree on and change UI elements like text color and main background
 - Reset button looked pressed? 
 - Same auth and password bug? Technically it's okay
 - Check if image name or url has already been uploaded and disallow it. 
-- Allow the user to remove a particular image? 
+- (*) Allow the user to remove a particular image!!!
 
 ---
