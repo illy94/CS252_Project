@@ -49,5 +49,6 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - (ERIC) make a database to save the links to those models, animations or patterns 
 - (ERIC) maybe add button to go back home from AR
 - (ALL) clean up
+- Give trial 3D models to users if they haven't signed up or logged in
 
 ---
