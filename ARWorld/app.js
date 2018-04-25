@@ -272,7 +272,8 @@ function readNewPost(readname, readpassword) {
               a.setAttribute('href', childSnapshot.val().ipdf);
               a.appendChild(newLink);
 
-              var line = document.getElementById("mainBox").appendChild(p);
+              var container = document.getElementById("mainBox");
+              var line = container.appendChild(p);
               line.appendChild(a);
 
             }
@@ -362,7 +363,7 @@ function removeFunctionJS(name){
 
     if (!check){
         document.getElementById('deletename').style.borderColor = "red";
-        document.getElementById('deleteErr').innerHTML = '&#9888; Could not find item. Please try again.';
+        document.getElementById('deleteErr').innerHTML = '&#9888; Could not find name. Please try again.';
       //The name you want to delete is not found
     } else {
         document.getElementById('deletename').style.borderColor = "lightgrey";
