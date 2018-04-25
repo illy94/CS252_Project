@@ -330,11 +330,11 @@ function giveEric3D(readname, readpassword) {
 }
 
 function getUserInfo(){
-  if(document.cookie = ''){
+  if(document.cookie == ''){
     console.log("empty info");
     document.cookie = "cookie=trialuser:trialpass;";
   }
-
+  
   var newContent = document.createTextNode(getUsername());
 
   var line = document.getElementById("userinfostring").appendChild(newContent);

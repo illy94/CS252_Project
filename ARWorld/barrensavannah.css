@@ -72,6 +72,18 @@ background-image:url(tab.png);
 border-bottom:none;
 }
 
+.topNaviagationLink a:visited
+{
+text-align:center;
+color:#FFFFFF;
+display: block;
+width:121px;
+height: 35px;
+line-height: 35px;
+background-image:url(tab.png);
+border-bottom:none;
+}
+
 #mainPicture
 {
 clear:both;
@@ -196,7 +208,7 @@ border-bottom:dotted 2px;
 }
 a:visited
 {
-color:#FFFFFF;
+color:#793C06;
 
 }
 
