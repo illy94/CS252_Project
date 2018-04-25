@@ -27,6 +27,11 @@ function signupjs(username, pw, auth) {
     tmp: 1
   }
 
+  if(username == '' || pw == '' || auth == ''){
+    alert('Please fill in all fields.');
+    return;
+  }
+
   firebase.database().ref('/user-data/' + username).once("value",snapshot => {
       const userData = snapshot.val();
       if (userData){
@@ -227,33 +232,6 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
       //document.write("We don't have anything to show up");
     }
   });
-}
-
-function checkName(readname, readpassword, readimgname) {
-  var check = false;
-  // A post entry.
-  firebase.database().ref('/user-data/' + readname).once("value",snapshot => {
-    const userData = snapshot.val();
-    if(userData){
-      firebase.database().ref('/user-data/' + readname + '/' + readpassword).once("value",snapshot => {
-        const passData = snapshot.val();
-        if(passData){
-          snapshot.forEach(function(childSnapshot) {
-            if(childSnapshot.val().iname == readimgname){
-              console.log("FOUND MATCH")
-              check = true;
-            }
-          });
-        } else {
-          console.log("Password incorrect");
-        }
-      });
-    } else {
-      console.log("User doesn't exist");
-    }
-  });
-
-  return check;
 }
 
 function readFunction(){
