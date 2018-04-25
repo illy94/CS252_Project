@@ -15,7 +15,7 @@ function setUpUrls(arr){
     //set up position or scale, if they exist
     marker.childNodes[1].setAttribute('scale',arr[0].scale);
     marker.childNodes[1].setAttribute('position',arr[0].position);
-    marker.childNodes[1].setAttribute('rotation', '90 0 180');
+    //marker.childNodes[1].setAttribute('rotation', '90 0 180');
     return;
 }
 
@@ -38,7 +38,7 @@ function createMultiMarker(object,marker,arr){
       tempMar.childNodes[1].setAttribute('gltf-model','#object'+i);
       //set up position or scale, if they exist
       tempMar.childNodes[1].setAttribute('position',arr[i].position);
-      tempMar.childNodes[1].setAttribute('scale','0.1 0.1 0.1');
+      tempMar.childNodes[1].setAttribute('scale','0.01 0.01 0.01');
       tempMar.childNodes[1].setAttribute('rotation',arr[i].rotation);
       scene.appendChild(tempMar);
     }
