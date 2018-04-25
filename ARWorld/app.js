@@ -138,6 +138,12 @@ function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
     ipdf: imagepdf
   }
 
+// Check if any field is left empty and alert the user
+if (Auth == '' || imagepdf == '' || name == '' || imageurl == '' || tdurl == ''){
+  alert('Please fill in all fields.');
+  return;
+}
+
 var newPostKey = firebase.database().ref().child('Users').push().key;
 
 firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
