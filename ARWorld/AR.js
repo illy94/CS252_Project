@@ -1,22 +1,15 @@
-var arr = [];
 
-window.onload = async function (){
-   console.log('hi');
-   //arr = await giveEric();
-   //await setUpUrls();
-   console.log(arr);
-   //console.log('bye');  
-   //setUpUrls();
+window.onload = function (){
+   getAR();
 };
 
 
-function setUpUrls(){
+function setUpUrls(arr){
     console.log('setUpUrls');
-    console.log('2');
-    console.log(arr);
+    //console.log(arr);
     var object = document.querySelector('#object');
     var marker = document.querySelector('#marker');
-    createMultiMarker(object,marker);
+    createMultiMarker(object,marker,arr);
     object.setAttribute('src',arr[0].src);
     marker.setAttribute('url',arr[0].url);
     //set up position or scale, if they exist
@@ -26,7 +19,7 @@ function setUpUrls(){
     return;
 }
 
-function createMultiMarker(object,marker){
+function createMultiMarker(object,marker,arr){
   var assets = document.querySelector('a-assets');
   var scene = document.querySelector('a-scene');
   for(var i = 1; i < arr.length; i++){
@@ -49,7 +42,5 @@ function createMultiMarker(object,marker){
       tempMar.childNodes[1].setAttribute('rotation',arr[i].rotation);
       scene.appendChild(tempMar);
     }
-  console.log(assets);
-  console.log(scene);
   return;
 }

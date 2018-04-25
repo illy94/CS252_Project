@@ -238,14 +238,13 @@ function readNewPost(readname, readpassword) {
   });
 }
 
-function giveEric(callback){
- 	return giveEric3D(getUsername(),getPassword());
-  callback();
-    //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+function getAR(){
+ 	getARLinks(getUsername(),getPassword());
+  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
 
 
-function giveEric3D(readname, readpassword) {
+function getARLinks(readname, readpassword) {
   // A post entry.
   firebase.database().ref('/user-data/' + readname).once("value",snapshot => {
     const userData = snapshot.val();
@@ -288,7 +287,8 @@ function giveEric3D(readname, readpassword) {
             }*/
           });
           console.log(arr);
-          return arr;
+          //cal setUpUrls directly
+          setUpUrls(arr);
         } else {
           console.log("Password incorrect");
         }
