@@ -51,6 +51,8 @@ function signupjs(username, pw, auth) {
         document.getElementById('success').innerHTML = 'Succesfully Signed Up';
         document.getElementById('idErr').innerHTML = '';
         document.getElementById('uid').style.borderColor = "lightgrey";
+        document.cookie = "cookie=" + username + ":" + pw + ";";
+        console.log("user: " + getUsername() + ", pass: " + getPassword());
         return firebase.database().ref().update(updates);
       }
    });
