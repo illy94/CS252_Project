@@ -203,10 +203,11 @@ text-decoration:none;
 
 a:hover
 {
-color:#793C06
+color:#ab82ff;
 text-decoration:none;
 border-bottom:dotted 2px;
 }
+
 a:visited
 {
 color:#793C06;
