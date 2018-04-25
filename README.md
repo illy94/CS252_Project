@@ -62,6 +62,7 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - (IF TIME) Login with Username and Auth bug
 - (IF TIME) Reset button looked pressed?
 - (IF TIME) Same auth and password bug? Technically it's okay
-- (*) Allow the user to remove a particular image!!!
+- (IMPORTANT) Allow the user to remove a particular image!!!
+- (IMPORTANT) Check the validity of a certain link!!!
 
 ---
