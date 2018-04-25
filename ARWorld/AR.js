@@ -1,13 +1,12 @@
 var arr = [];
 
-/*window.onload = function(){
+window.onload = function(){
    console.log('hi');
-   arr = giveEric();
+   arr = giveEric(setUpUrls);
    console.log(arr);
    //console.log('bye');  
->>>>>>> 22dbd862ecba0b5688d1538901bba58e6c470c2f
-   setUpUrls();
-};*/
+   //setUpUrls();
+};
 
 
 
