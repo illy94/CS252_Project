@@ -10,6 +10,7 @@ body {
 	color: #061C37;
 	background: #25060B url(bg.jpg);
 	background-repeat:repeat-x;
+	background-size: cover;
 }
 *
 {
