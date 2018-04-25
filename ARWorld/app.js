@@ -344,32 +344,43 @@ function setUserInfo(name){
 }
 
 function removeFunction(){
-  removeFunctionJS(document.querySelector('#deletename').value);
+  removeFunctionJS(document.querySelector('#deletename').value, document.querySelector('#auth').value);
 }
 
-function removeFunctionJS(name){
-  console.log("removing: " + name)
-  firebase.database().ref('/user-data/' + getUsername() + '/' + getPassword()).once("value",snapshot => {
-    var check = false;
-    snapshot.forEach(child => {
+function removeFunctionJS(name, auth){
 
-      if (child.val().iname == name){
-        check = true;
-        firebase.database().ref('/user-data/' + getUsername() + '/' + getPassword() + '/' + child.key).remove(function(error){
-          console.log("done removing");
+  firebase.database().ref('/user-data/' + getUsername() + '/' +  auth).once("value",snapshot => {
+    const userauth = snapshot.val();
+    if(userauth) {
+      document.getElementById('auth').style.borderColor = "lightgrey";
+      document.getElementById('authErr').innerHTML = '';
+
+      console.log("removing: " + name)
+      firebase.database().ref('/user-data/' + getUsername() + '/' + getPassword()).once("value",snapshot => {
+        var check = false;
+        snapshot.forEach(child => {
+
+          if (child.val().iname == name){
+            check = true;
+            firebase.database().ref('/user-data/' + getUsername() + '/' + getPassword() + '/' + child.key).remove(function(error){
+              console.log("done removing");
+            });
+          }
         });
-      }
-    });
 
-    if (!check){
-        document.getElementById('deletename').style.borderColor = "red";
-        document.getElementById('deleteErr').innerHTML = '&#9888; Could not find name. Please try again.';
-      //The name you want to delete is not found
+        if (!check){
+            document.getElementById('deletename').style.borderColor = "red";
+            document.getElementById('deleteErr').innerHTML = '&#9888; Could not find name. Please try again.';
+          //The name you want to delete is not found
+        } else {
+            document.getElementById('deletename').style.borderColor = "lightgrey";
+            document.getElementById('deleteErr').innerHTML = '';
+            location.reload();  
+        }
+      });
     } else {
-        document.getElementById('deletename').style.borderColor = "lightgrey";
-        document.getElementById('deleteErr').innerHTML = '';
-        location.reload();  
+      document.getElementById('auth').style.borderColor = "red";
+      document.getElementById('authErr').innerHTML = '&#9888; Authentication failed. Please try again.';
     }
   });
-
 }
