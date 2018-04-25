@@ -256,7 +256,7 @@ function readNewPost(readname, readpassword) {
         if(passData){
           var count = 0;
           snapshot.forEach(function(childSnapshot) {
-            console.log(childSnapshot.val().ipdf);
+            // console.log(childSnapshot.val().ipdf);
             // var currentDiv = document.getElementById("mainBox");
             // var newContent = document.createTextNode(childSnapshot.val().ipdf);
             // currentDiv.appendChild(newContent);
@@ -264,15 +264,13 @@ function readNewPost(readname, readpassword) {
               count += 1;
               var p = document.createElement("p");
               p.style.fontSize = "small";
-              var newContent = document.createTextNode( count + ". Link to " + childSnapshot.val().iname + " pdf: ");
+              var newContent = document.createTextNode( count + ". Name: " + childSnapshot.val().iname + ", Link: ");
               p.appendChild(newContent);
 
               var a = document.createElement("a");
               var newLink = document.createTextNode(childSnapshot.val().ipdf)
               a.setAttribute('href', childSnapshot.val().ipdf);
               a.appendChild(newLink);
-
-              var br = document.createElement("br");
 
               var line = document.getElementById("mainBox").appendChild(p);
               line.appendChild(a);
@@ -342,4 +340,31 @@ function getUserInfo(){
 
 function setUserInfo(name){
     document.getElementById('userinfostring').innerHTML = 'User: ' + name;
+}
+
+function removeFunction(){
+  removeFunctionJS(document.querySelector('#deletename').value);
+}
+
+function removeFunctionJS(name){
+  console.log("removing: " + name)
+  firebase.database().ref('/user-data/' + getUsername() + '/' + getPassword()).once("value",snapshot => {
+    var check = false;
+    snapshot.forEach(child => {
+
+      if (child.val().iname == name){
+        check = true;
+        firebase.database().ref('/user-data/' + getUsername() + '/' + getPassword() + '/' + child.key).remove(function(error){
+          console.log("done removing");
+        });
+      }
+    });
+
+    if (!check){
+        document.getElementById('deletename').style.borderColor = "red";
+        document.getElementById('deleteErr').innerHTML = '&#9888; Could not find item. Please try again.';
+      //The name you want to delete is not found
+    }
+  });
+
 }

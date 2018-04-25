@@ -57,13 +57,13 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - ~~(HJ) agree on and change UI elements like text color and main background~~
 - ~~(CHRIS) Check if image name or url has already been uploaded and disallow it~~
 - ~~(CHRIS) Give trial 3D models to users if they haven't signed up or logged in, temp account login~~
-- (ERIC) allow users to add new 3D models, animations and patterns to see through AR
+- ~~(ERIC) allow users to add new 3D models, animations and patterns to see through AR~~
 - (ERIC) maybe add button to go back home from AR
+- (CHRIS) Allow the user to remove a particular image
 - (IF TIME) Login with Username and Auth bug
 - (IF TIME) Reset button looked pressed?
 - (IF TIME) Same auth and password bug? Technically it's okay
 - (IF TIME) Clean up pictures to resource folder 
-- (IMPORTANT) Allow the user to remove a particular image!!!
 - (IMPORTANT) Check the validity of a certain link!!!
 
 ---

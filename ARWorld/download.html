@@ -38,26 +38,23 @@ Released   : 20081009
     <div id="mainPicture">
     	<div class="picture">
         	<div id="headerTitle">Downloads</div>
-            <div id="headerSubtext">Download your image pdfs here!</div>
+            <div id="headerSubtext">Download or remove image pdfs</div>
         </div>
     </div>
         <div class="contentBox">
     	<div class="innerBox">
 
-			<h1>Download links here!</h1>
+			<h1>Download or Remove links here!</h1>
 		<div id="mainBox" class="contentText">
 			<pre id="Users"></pre>
 		    <ul id = "list"></ul>
 
-		    <!--form>
-          	User Name:<br>
-		      <input type="text" name="name" id="readname"><br>
-          	Password:<br>
-		      <input type="text" name="pass" id="readpassword"><br>
-			</form-->
-		      <!--button onclick="readFunction()">Get Links</button> <br /><br /-->
+		    <script>readFunction()</script>
 
-		      <script>readFunction()</script>
+            <p>Remove by name:</p>
+              <input type="text" name="deletename" id="deletename">
+              <label id = 'deleteErr'></label>
+            <button onclick="removeFunction()">remove</button>
 		    <!--script src="app.js"></script-->
 		</div>
 
