@@ -238,8 +238,10 @@ function readNewPost(readname, readpassword) {
   });
 }
 
-function giveEric(){
- 	return giveEric3D(getUsername(),getPassword());  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+function giveEric(callback){
+ 	return giveEric3D(getUsername(),getPassword());
+  callback();
+    //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
 
 

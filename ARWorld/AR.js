@@ -1,19 +1,19 @@
 var arr = [];
 
-window.onload = function(){
+window.onload = async function (){
    console.log('hi');
-   arr = giveEric(setUpUrls);
+   //arr = await giveEric();
+   //await setUpUrls();
    console.log(arr);
    //console.log('bye');  
    //setUpUrls();
 };
 
 
-
 function setUpUrls(){
-    arr = giveEric();
-    console.log("hey:" + arr);
     console.log('setUpUrls');
+    console.log('2');
+    console.log(arr);
     var object = document.querySelector('#object');
     var marker = document.querySelector('#marker');
     createMultiMarker(object,marker);
