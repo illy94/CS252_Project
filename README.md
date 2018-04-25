@@ -61,6 +61,7 @@ Current host link: https://cs252-ar.firebaseapp.com/
 - (IF TIME) Login with Username and Auth bug
 - (IF TIME) Reset button looked pressed?
 - (IF TIME) Same auth and password bug? Technically it's okay
+- (IF TIME) Clean up pictures to resource folder 
 - (IMPORTANT) Allow the user to remove a particular image!!!
 - (IMPORTANT) Check the validity of a certain link!!!
 - (IMPORTANT) Give trial 3D models to users if they haven't signed up or logged in, make a temp account for this to set cookies
