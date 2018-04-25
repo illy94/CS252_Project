@@ -184,33 +184,33 @@ text-align:center;
 padding-top:30px;
 font-size:9px;
 font-family:Arial, Helvetica, sans-serif;
-color:#C87002;
+color:#cdb5cd;
 margin:0px;
 }
 
 #footer a
 {
-color:#C87002;
+color:#cdb5cd;
 text-decoration:none;
 font-size:9px;
 }
 
 a
 {
-color:#C87002;
+color:#7a8b8b;
 text-decoration:none;
 }
 
 a:hover
 {
-color:#ab82ff;
+color:#6ca6cd;
 text-decoration:none;
 border-bottom:dotted 2px;
 }
 
 a:visited
 {
-color:#793C06;
+color:#6ca6cd;
 
 }
 
