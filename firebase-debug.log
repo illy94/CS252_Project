@@ -1,0 +1,32 @@
+[debug] [2018-04-25T15:55:18.070Z] ----------------------------------------------------------------------
+[debug] [2018-04-25T15:55:18.076Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve -p 3005
+[debug] [2018-04-25T15:55:18.077Z] CLI Version:   3.18.4
+[debug] [2018-04-25T15:55:18.077Z] Platform:      darwin
+[debug] [2018-04-25T15:55:18.077Z] Node Version:  v8.11.1
+[debug] [2018-04-25T15:55:18.078Z] Time:          Wed Apr 25 2018 11:55:18 GMT-0400 (EDT)
+[debug] [2018-04-25T15:55:18.078Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-25T15:55:18.103Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-25T15:55:18.104Z] > authorizing via signed-in user
+[debug] [2018-04-25T15:55:18.110Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/cs252-ar  
+  
+ Wed Apr 25 2018 11:55:18 GMT-0400 (EDT)
+[debug] [2018-04-25T15:55:18.655Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-25T15:55:18.656Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/cs252-ar/tokens  
+  
+ Wed Apr 25 2018 11:55:18 GMT-0400 (EDT)
+[debug] [2018-04-25T15:55:19.281Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-25T15:55:19.283Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/cs252-ar  
+  
+ Wed Apr 25 2018 11:55:19 GMT-0400 (EDT)
+[debug] [2018-04-25T15:55:19.780Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/Eric/Documents/GitHub/CS252_Project'...
+[info] 
+[debug] [2018-04-25T15:55:19.784Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1074716148069/clients/_:getWebAppConfig  
+  
+ Wed Apr 25 2018 11:55:19 GMT-0400 (EDT)
+[debug] [2018-04-25T15:55:20.641Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ARWorld
+[info] ✔  hosting: Local server: http://localhost:3005
+

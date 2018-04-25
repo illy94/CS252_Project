@@ -9,12 +9,14 @@ function setUpUrls(arr){
     //console.log(arr);
     var object = document.querySelector('#object');
     var marker = document.querySelector('#marker');
-    createMultiMarker(object,marker,arr);
-    object.setAttribute('src',arr[0].src);
-    marker.setAttribute('url',arr[0].url);
+    //object.setAttribute('src',arr[0].src);
+    //marker.setAttribute('url',arr[0].url);
     //set up position or scale, if they exist
-    marker.childNodes[1].setAttribute('scale',arr[0].scale);
-    marker.childNodes[1].setAttribute('position',arr[0].position);
+    //marker.childNodes[1].setAttribute('scale','0.1 0.1 0.1');
+    //marker.childNodes[1].setAttribute('position',arr[0].position);
+    //console.log(object);
+    createMultiMarker(object,marker,arr);
+    console.log(object);
     //marker.childNodes[1].setAttribute('rotation', '90 0 180');
     return;
 }
@@ -22,7 +24,7 @@ function setUpUrls(arr){
 function createMultiMarker(object,marker,arr){
   var assets = document.querySelector('a-assets');
   var scene = document.querySelector('a-scene');
-  for(var i = 1; i < arr.length; i++){
+  for(var i = 0; i < arr.length; i++){
       //create elements has no problem.
       var tempObj = document.createElement('a-asset-item');//object.cloneNode(true);
       //use clone to decrease the size of code
@@ -38,7 +40,7 @@ function createMultiMarker(object,marker,arr){
       tempMar.childNodes[1].setAttribute('gltf-model','#object'+i);
       //set up position or scale, if they exist
       tempMar.childNodes[1].setAttribute('position',arr[i].position);
-      tempMar.childNodes[1].setAttribute('scale','0.01 0.01 0.01');
+      tempMar.childNodes[1].setAttribute('scale','0.1 0.1 0.1');
       tempMar.childNodes[1].setAttribute('rotation',arr[i].rotation);
       scene.appendChild(tempMar);
     }
