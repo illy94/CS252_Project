@@ -27,6 +27,11 @@ function signupjs(username, pw, auth) {
     tmp: 1
   }
 
+  if(username == '' || pw == '' || auth == ''){
+    alert('Please fill in all fields.');
+    return;
+  }
+
   firebase.database().ref('/user-data/' + username).once("value",snapshot => {
       const userData = snapshot.val();
       if (userData){
@@ -46,6 +51,9 @@ function signupjs(username, pw, auth) {
         document.getElementById('success').innerHTML = 'Succesfully Signed Up';
         document.getElementById('idErr').innerHTML = '';
         document.getElementById('uid').style.borderColor = "lightgrey";
+        document.cookie = "cookie=" + username + ":" + pw + ";";
+        console.log("user: " + getUsername() + ", pass: " + getPassword());
+        setUserInfo(username);
         return firebase.database().ref().update(updates);
       }
    });
@@ -100,6 +108,7 @@ function loginjs (username, password) {
             document.getElementById('success').innerHTML = 'Login Successful';
             document.getElementById('idErr').innerHTML = '';
             document.getElementById('pwErr').innerHTML = '';
+            setUserInfo(username);
           }
           else{
             console.log("Password Incorrect");
@@ -124,11 +133,9 @@ function loginjs (username, password) {
 
 
 function myFunction(){
-  /*console.log(document.querySelector('#hello').value);
-  console.log(document.querySelector('#imageurl').value);
-  console.log(document.querySelector('#tdurl').value);*/
 
-  writeNewPost(getUsername(),getPassword(),document.querySelector('#Auth').value,document.querySelector('#imagepdf').value,document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
+  writeNewPost(getUsername(),getPassword(),document.querySelector('#Auth').value,document.querySelector('#imagepdf').value,document.querySelector('#hello').value, 
+    document.querySelector('#imageurl').value, document.querySelector('#tdurl').value);  //document.querySelector('#hello').value, document.querySelector('#imageurl').value, document.querySelector('#tdurl').value
 }
 
 function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
@@ -140,6 +147,12 @@ function writeNewPost(uname, upassword, Auth, imagepdf, name, imageurl, tdurl) {
     ipdf: imagepdf
   }
 
+// Check if any field is left empty and alert the user
+if (Auth == '' || imagepdf == '' || name == '' || imageurl == '' || tdurl == ''){
+  alert('Please fill in all fields.');
+  return;
+}
+
 var newPostKey = firebase.database().ref().child('Users').push().key;
 
 firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
@@ -149,9 +162,18 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
       firebase.database().ref('/user-data/' + uname+ '/' + upassword).once("value",snapshot => {
         const userpw = snapshot.val();
         if(userpw) {
-          //change back the input field to default status
-          //document.getElementById('upassword').style.borderColor = 'lightgrey';
-          //document.getElementById('passwordErr').innerHTML = '';
+
+          var namecheck = false;
+          var urlcheck = false;
+          // check if the name or url has previously been added
+          snapshot.forEach(function(childSnapshot) {
+            if(childSnapshot.val().iname == name){
+              namecheck = true;
+            }
+            if(childSnapshot.val().iurl == imageurl){
+              urlcheck = true;
+            }
+          });
 
           firebase.database().ref('/user-data/' + uname+ '/' +  Auth).once("value",snapshot => {
             const userauth = snapshot.val();
@@ -159,6 +181,35 @@ firebase.database().ref('/user-data/' + uname).once("value",snapshot => {
              //change back the input field to default status
               document.getElementById('Auth').style.borderColor = 'lightgrey';
               document.getElementById('authErr').innerHTML = '';
+
+              // check if the name and url have been previously saved 
+              if(namecheck){
+                console.log("the names match, try again")
+                document.getElementById('hello').style.borderColor = 'red';
+                document.getElementById('nameErr').innerHTML = '&#9888; Image name used previously. Please try again.';
+              } else {
+                document.getElementById('hello').style.borderColor = 'lightgrey';
+                document.getElementById('nameErr').innerHTML = '';
+              }
+
+              if(urlcheck){
+                console.log("the urls match, try again")
+                document.getElementById('imageurl').style.borderColor = 'red';
+                document.getElementById('pattErr').innerHTML = '&#9888; Patt file used previously. Please try again.';
+              } else {
+                document.getElementById('imageurl').style.borderColor = 'lightgrey';
+                document.getElementById('pattErr').innerHTML = '';
+              }
+
+              if(urlcheck || namecheck){
+                return;
+              } else {
+                document.getElementById('hello').style.borderColor = 'lightgrey';
+                document.getElementById('nameErr').innerHTML = '';
+                document.getElementById('imageurl').style.borderColor = 'lightgrey';
+                document.getElementById('pattErr').innerHTML = '';
+              }
+
               var newPostKey = firebase.database().ref().child('Users').push().key;
               // Write the new post's data simultaneously in the posts list and the user's post list.
               var updates = {};
@@ -261,30 +312,9 @@ function getARLinks(readname, readpassword) {
 	          	var tempArr ={ src:childSnapshot.val().turl, url:childSnapshot.val().iurl};
 	          	arr.push(tempArr);
 	            //console.log(tempArr);
-        	} else {
+          	} else {
 
-        	}
-            // var currentDiv = document.getElementById("mainBox");
-            // var newContent = document.createTextNode(childSnapshot.val().ipdf);
-            // currentDiv.appendChild(newContent);
-            /*if (childSnapshot.val().ipdf){
-              count += 1;
-              var p = document.createElement("p");
-              p.style.fontSize = "small";
-              var newContent = document.createTextNode( count + ". Link to " + childSnapshot.val().iname + " pdf: ");
-              p.appendChild(newContent);
-
-              var a = document.createElement("a");
-              var newLink = document.createTextNode(childSnapshot.val().ipdf)
-              a.setAttribute('href', childSnapshot.val().ipdf);
-              a.appendChild(newLink);
-
-              var br = document.createElement("br");
-
-              var line = document.getElementById("mainBox").appendChild(p);
-              line.appendChild(a);
-
-            }*/
+          	}
           });
           console.log(arr);
           //cal setUpUrls directly
@@ -297,4 +327,20 @@ function getARLinks(readname, readpassword) {
       console.log("User doesn't exist");
     }
   });
+}
+
+function getUserInfo(){
+  if(document.cookie == ''){
+    console.log("empty info");
+    document.cookie = "cookie=trialuser:trialpass;";
+  }
+  
+  var newContent = document.createTextNode(getUsername());
+
+  var line = document.getElementById("userinfostring").appendChild(newContent);
+
+}
+
+function setUserInfo(name){
+    document.getElementById('userinfostring').innerHTML = 'User: ' + name;
 }

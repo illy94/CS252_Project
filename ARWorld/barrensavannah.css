@@ -10,11 +10,22 @@ body {
 	color: #061C37;
 	background: #25060B url(bg.jpg);
 	background-repeat:repeat-x;
+	background-size: cover;
 }
 *
 {
   margin: 0 auto 0 auto;
  text-align:left;
+}
+
+#userinfo
+{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size:12px;
+	color:#DDDDDD;
+	font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
 }
 
 #page
@@ -51,6 +62,18 @@ border-bottom:dashed 1px;
 }
 
 .topNaviagationLink a:hover
+{
+text-align:center;
+color:#FFFFFF;
+display: block;
+width:121px;
+height: 35px;
+line-height: 35px;
+background-image:url(tab.png);
+border-bottom:none;
+}
+
+.topNaviagationLink a:visited
 {
 text-align:center;
 color:#FFFFFF;
@@ -186,7 +209,7 @@ border-bottom:dotted 2px;
 }
 a:visited
 {
-color:#FFFFFF;
+color:#793C06;
 
 }
 
