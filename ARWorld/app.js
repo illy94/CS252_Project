@@ -364,6 +364,10 @@ function removeFunctionJS(name){
         document.getElementById('deletename').style.borderColor = "red";
         document.getElementById('deleteErr').innerHTML = '&#9888; Could not find item. Please try again.';
       //The name you want to delete is not found
+    } else {
+        document.getElementById('deletename').style.borderColor = "lightgrey";
+        document.getElementById('deleteErr').innerHTML = '';
+        location.reload();  
     }
   });
 
