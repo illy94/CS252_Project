@@ -53,6 +53,7 @@ function signupjs(username, pw, auth) {
         document.getElementById('uid').style.borderColor = "lightgrey";
         document.cookie = "cookie=" + username + ":" + pw + ";";
         console.log("user: " + getUsername() + ", pass: " + getPassword());
+        setUserInfo(username);
         return firebase.database().ref().update(updates);
       }
    });
@@ -107,6 +108,7 @@ function loginjs (username, password) {
             document.getElementById('success').innerHTML = 'Login Successful';
             document.getElementById('idErr').innerHTML = '';
             document.getElementById('pwErr').innerHTML = '';
+            setUserInfo(username);
           }
           else{
             console.log("Password Incorrect");
@@ -325,4 +327,20 @@ function giveEric3D(readname, readpassword) {
       console.log("User doesn't exist");
     }
   });
+}
+
+function getUserInfo(){
+  if(document.cookie = ''){
+    console.log("empty info");
+    document.cookie = "cookie=trialuser:trialpass;";
+  }
+
+  var newContent = document.createTextNode(getUsername());
+
+  var line = document.getElementById("userinfostring").appendChild(newContent);
+
+}
+
+function setUserInfo(name){
+    document.getElementById('userinfostring').innerHTML = 'User: ' + name;
 }

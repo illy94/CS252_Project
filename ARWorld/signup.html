@@ -19,9 +19,14 @@ Released   : 20081009
 <link rel="stylesheet" type="text/css" href="barrensavannah.css" />
 <title>AR World SignUp</title>
 <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+<script src="app.js"></script>
 </head>
 
 <body>
+
+    <div id ="userinfo"><p id="userinfostring">User: </p></div>
+    <script>getUserInfo()</script>
+
     <div id="page">
         <div class="topNaviagationLink"><a href="index.html">Home</a></div>
         <div class="topNaviagationLink"><a href="AR.html">AR</a></div>
@@ -56,7 +61,7 @@ Released   : 20081009
               <br><input type="reset" value="Reset">
             </form>
             <button onclick="signup()">Sign Up</button>
-            <script src="app.js"></script>
+
         </div>
 
 
