@@ -316,7 +316,6 @@ function getARLinks(readname, readpassword) {
 
           	}
           });
-          console.log(arr);
           //cal setUpUrls directly
           setUpUrls(arr);
         } else {
