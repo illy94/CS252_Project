@@ -1,9 +1,26 @@
 {
   "accessors": [
     {
-      "bufferView": 3,
+      "bufferView": 2,
       "componentType": 5126,
-      "count": 2048,
+      "count": 16387,
+      "max": [
+        1.0000020265579224,
+        1.0000009536743164,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 196644,
+      "componentType": 5126,
+      "count": 16387,
       "max": [
         1,
         1,
@@ -18,406 +35,118 @@
     },
     {
       "bufferView": 3,
-      "byteOffset": 24576,
       "componentType": 5126,
-      "count": 2048,
+      "count": 16387,
       "max": [
         1,
         1,
+        0.012125010602176189,
         1
       ],
       "min": [
         -1,
         -1,
-        -1
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 4,
-      "componentType": 5126,
-      "count": 2048,
-      "max": [
-        0.99994754791259766,
-        0.99996942281723022,
-        0.47426557540893555,
+        -0.012426111847162247,
         1
-      ],
-      "min": [
-        -0.99958217144012451,
-        -0.99999964237213135,
-        -0.56619691848754883,
-        -1
       ],
       "type": "VEC4"
     },
     {
-      "bufferView": 2,
-      "componentType": 5126,
-      "count": 2048,
-      "max": [
-        1.4386999607086182,
-        0.98802000284194946
-      ],
-      "min": [
-        -0.0025500000920146704,
-        -0.0041700000874698162
-      ],
-      "type": "VEC2"
-    },
-    {
       "bufferView": 1,
-      "componentType": 5125,
-      "count": 11904,
+      "componentType": 5126,
+      "count": 16387,
       "max": [
-        2047
+        1,
+        1
       ],
       "min": [
+        0,
         0
       ],
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 3,
-      "byteOffset": 49152,
-      "componentType": 5126,
-      "count": 2048,
-      "max": [
-        1.0066499710083008,
-        1.0066499710083008,
-        1.0066499710083008
-      ],
-      "min": [
-        -1.0066499710083008,
-        -1.0066499710083008,
-        -1.0066499710083008
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "byteOffset": 73728,
-      "componentType": 5126,
-      "count": 2048,
-      "max": [
-        1,
-        1,
-        1
-      ],
-      "min": [
-        -1,
-        -1,
-        -1
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 4,
-      "byteOffset": 32768,
-      "componentType": 5126,
-      "count": 2048,
-      "max": [
-        0.99994742870330811,
-        0.99996930360794067,
-        0.47426551580429077,
-        1
-      ],
-      "min": [
-        -0.99958211183547974,
-        -0.9999995231628418,
-        -0.56619685888290405,
-        -1
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 16384,
-      "componentType": 5126,
-      "count": 2048,
-      "max": [
-        1.4386999607086182,
-        0.98802000284194946
-      ],
-      "min": [
-        -0.0025500000920146704,
-        -0.0041700000874698162
-      ],
       "type": "VEC2"
-    },
-    {
-      "bufferView": 1,
-      "byteOffset": 47616,
-      "componentType": 5125,
-      "count": 11904,
-      "max": [
-        2047
-      ],
-      "min": [
-        0
-      ],
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 5,
-      "componentType": 5126,
-      "count": 2,
-      "max": [
-        1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        1
-      ],
-      "min": [
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        -1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1
-      ],
-      "type": "MAT4"
     },
     {
       "bufferView": 0,
-      "componentType": 5123,
-      "count": 2048,
+      "componentType": 5125,
+      "count": 97536,
       "max": [
-        1,
-        1,
-        1,
-        1
+        16386
       ],
       "min": [
-        1,
-        1,
-        1,
-        1
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 4,
-      "byteOffset": 65536,
-      "componentType": 5126,
-      "count": 2048,
-      "max": [
-        1,
-        0,
-        0,
         0
-      ],
-      "min": [
-        1,
-        0,
-        0,
-        0
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 6,
-      "componentType": 5126,
-      "count": 1199,
-      "max": [
-        50
-      ],
-      "min": [
-        0.083329997956752777
       ],
       "type": "SCALAR"
-    },
-    {
-      "bufferView": 7,
-      "componentType": 5126,
-      "count": 1199,
-      "max": [
-        0.70710676908493042,
-        0.70707851648330688,
-        0.70707851648330688,
-        0.70710676908493042
-      ],
-      "min": [
-        -0.0059396969154477119,
-        -0.70707142353057861,
-        -0.70707142353057861,
-        -0.0059396969154477119
-      ],
-      "type": "VEC4"
-    }
-  ],
-  "animations": [
-    {
-      "channels": [
-        {
-          "sampler": 0,
-          "target": {
-            "node": 7,
-            "path": "rotation"
-          }
-        }
-      ],
-      "name": "ArmatureAction",
-      "samplers": [
-        {
-          "input": 13,
-          "interpolation": "LINEAR",
-          "output": 14
-        }
-      ]
     }
   ],
   "asset": {
     "extras": {
-      "author": "murilo.kleine (https://sketchfab.com/murilo.kleine)",
+      "author": "Solar Impulse (https://sketchfab.com/solarimpulse)",
       "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "https://sketchfab.com/models/30fd7e9c4e6946ddb6fcae7a97b2b0d4",
-      "title": "Earth | Terra - Downloadable model"
+      "source": "https://sketchfab.com/models/298e1ac1fdb048e892d036d588d4322c",
+      "title": "Solar Impulse Flight Path"
     },
-    "generator": "Sketchfab-3.19.4",
+    "generator": "Sketchfab-3.20.7",
     "version": "2.0"
   },
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 16384,
+      "byteLength": 390144,
       "byteOffset": 0,
-      "byteStride": 8,
-      "name": "shortBufferViews",
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 95232,
-      "byteOffset": 16384,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 32768,
-      "byteOffset": 111616,
+      "byteLength": 131096,
+      "byteOffset": 390144,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 98304,
-      "byteOffset": 144384,
+      "byteLength": 393288,
+      "byteOffset": 521240,
       "byteStride": 12,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 98304,
-      "byteOffset": 242688,
+      "byteLength": 262192,
+      "byteOffset": 914528,
       "byteStride": 16,
       "name": "floatBufferViews",
       "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 128,
-      "byteOffset": 340992,
-      "byteStride": 64,
-      "name": "floatBufferViews"
-    },
-    {
-      "buffer": 0,
-      "byteLength": 4796,
-      "byteOffset": 341120,
-      "name": "floatBufferViews"
-    },
-    {
-      "buffer": 0,
-      "byteLength": 19184,
-      "byteOffset": 345916,
-      "byteStride": 16,
-      "name": "floatBufferViews"
     }
   ],
   "buffers": [
     {
-      "byteLength": 365100,
+      "byteLength": 1176720,
       "uri": "scene.bin"
     }
   ],
+  "extensionsUsed": [
+    "KHR_materials_unlit"
+  ],
   "images": [
     {
-      "uri": "textures/Material.001_normal.jpg"
-    },
-    {
-      "uri": "textures/Material.001_metallicRoughness.png"
-    },
-    {
       "uri": "textures/Material.001_baseColor.jpg"
-    },
-    {
-      "uri": "textures/Material.002_baseColor.jpg"
     }
   ],
   "materials": [
     {
-      "alphaMode": "BLEND",
       "doubleSided": true,
       "emissiveFactor": [
         0,
         0,
         0
       ],
-      "name": "Material.002",
-      "pbrMetallicRoughness": {
-        "baseColorFactor": [
-          1,
-          1,
-          1,
-          0.93999999999999995
-        ],
-        "baseColorTexture": {
-          "index": 3,
-          "texCoord": 0
-        },
-        "metallicFactor": 0,
-        "roughnessFactor": 1
-      }
-    },
-    {
-      "doubleSided": true,
-      "emissiveFactor": [
-        0,
-        0,
-        0
-      ],
-      "name": "Material.001",
-      "normalTexture": {
-        "index": 0,
-        "scale": 1,
-        "texCoord": 0
+      "extensions": {
+        "KHR_materials_unlit": {}
       },
+      "name": "Material.001",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           1,
@@ -426,21 +155,16 @@
           1
         ],
         "baseColorTexture": {
-          "index": 2,
+          "index": 0,
           "texCoord": 0
         },
-        "metallicFactor": 0.11,
-        "metallicRoughnessTexture": {
-          "index": 1,
-          "texCoord": 0
-        },
+        "metallicFactor": 0,
         "roughnessFactor": 1
       }
     }
   ],
   "meshes": [
     {
-      "name": "EARTH_0",
       "primitives": [
         {
           "attributes": {
@@ -450,24 +174,6 @@
             "TEXCOORD_0": 3
           },
           "indices": 4,
-          "material": 1,
-          "mode": 4
-        }
-      ]
-    },
-    {
-      "name": "ATM",
-      "primitives": [
-        {
-          "attributes": {
-            "JOINTS_0": 11,
-            "NORMAL": 6,
-            "POSITION": 5,
-            "TANGENT": 7,
-            "TEXCOORD_0": 8,
-            "WEIGHTS_0": 12
-          },
-          "indices": 9,
           "material": 0,
           "mode": 4
         }
@@ -495,79 +201,13 @@
     },
     {
       "children": [
-        3,
-        5
+        3
       ],
-      "name": "Root"
-    },
-    {
-      "children": [
-        4
-      ],
-      "name": "EARTH"
+      "name": "earth.obj.cleaner"
     },
     {
       "mesh": 0,
-      "name": "EARTH_0"
-    },
-    {
-      "children": [
-        6,
-        9,
-        8
-      ],
-      "name": "Armature"
-    },
-    {
-      "children": [
-        7
-      ],
-      "name": "Armature_rootJoint"
-    },
-    {
-      "name": "Bone_Armature",
-      "rotation": [
-        0.7071068286895752,
-        0,
-        0,
-        0.7071068286895752
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ],
-      "translation": [
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "matrix": [
-        1.00665,
-        0,
-        0,
-        0,
-        0,
-        1.00665,
-        0,
-        0,
-        0,
-        0,
-        1.00665,
-        0,
-        0,
-        0,
-        0,
-        1
-      ],
-      "name": "ATM"
-    },
-    {
-      "mesh": 1,
-      "name": "ATM_0",
-      "skin": 0
+      "name": ""
     }
   ],
   "samplers": [
@@ -587,32 +227,10 @@
       ]
     }
   ],
-  "skins": [
-    {
-      "inverseBindMatrices": 10,
-      "joints": [
-        6,
-        7
-      ],
-      "skeleton": 6
-    }
-  ],
   "textures": [
     {
       "sampler": 0,
       "source": 0
-    },
-    {
-      "sampler": 0,
-      "source": 1
-    },
-    {
-      "sampler": 0,
-      "source": 2
-    },
-    {
-      "sampler": 0,
-      "source": 3
     }
   ]
 }
