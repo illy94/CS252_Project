@@ -1,6 +1,7 @@
 
 window.onload = function (){
    getAR();
+   //
 };
 
 
