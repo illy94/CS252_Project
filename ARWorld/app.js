@@ -270,6 +270,7 @@ function readNewPost(readname, readpassword) {
               var a = document.createElement("a");
               var newLink = document.createTextNode(childSnapshot.val().ipdf)
               a.setAttribute('href', childSnapshot.val().ipdf);
+              a.style.color = '#6ca6cd';
               a.appendChild(newLink);
 
               var container = document.getElementById("mainBox");
