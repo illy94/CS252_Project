@@ -256,7 +256,7 @@ function readNewPost(readname, readpassword) {
         if(passData){
           var count = 0;
           snapshot.forEach(function(childSnapshot) {
-            console.log(childSnapshot.val().ipdf);
+            // console.log(childSnapshot.val().ipdf);
             // var currentDiv = document.getElementById("mainBox");
             // var newContent = document.createTextNode(childSnapshot.val().ipdf);
             // currentDiv.appendChild(newContent);
@@ -264,7 +264,7 @@ function readNewPost(readname, readpassword) {
               count += 1;
               var p = document.createElement("p");
               p.style.fontSize = "small";
-              var newContent = document.createTextNode( count + ". Link to " + childSnapshot.val().iname + " pdf: ");
+              var newContent = document.createTextNode( count + ". Name: " + childSnapshot.val().iname + ", Link: ");
               p.appendChild(newContent);
 
               var a = document.createElement("a");
@@ -272,9 +272,8 @@ function readNewPost(readname, readpassword) {
               a.setAttribute('href', childSnapshot.val().ipdf);
               a.appendChild(newLink);
 
-              var br = document.createElement("br");
-
-              var line = document.getElementById("mainBox").appendChild(p);
+              var container = document.getElementById("mainBox");
+              var line = container.appendChild(p);
               line.appendChild(a);
 
             }
@@ -342,4 +341,46 @@ function getUserInfo(){
 
 function setUserInfo(name){
     document.getElementById('userinfostring').innerHTML = 'User: ' + name;
+}
+
+function removeFunction(){
+  removeFunctionJS(document.querySelector('#deletename').value, document.querySelector('#auth').value);
+}
+
+function removeFunctionJS(name, auth){
+
+  firebase.database().ref('/user-data/' + getUsername() + '/' +  auth).once("value",snapshot => {
+    const userauth = snapshot.val();
+    if(userauth) {
+      document.getElementById('auth').style.borderColor = "lightgrey";
+      document.getElementById('authErr').innerHTML = '';
+
+      console.log("removing: " + name)
+      firebase.database().ref('/user-data/' + getUsername() + '/' + getPassword()).once("value",snapshot => {
+        var check = false;
+        snapshot.forEach(child => {
+
+          if (child.val().iname == name){
+            check = true;
+            firebase.database().ref('/user-data/' + getUsername() + '/' + getPassword() + '/' + child.key).remove(function(error){
+              console.log("done removing");
+            });
+          }
+        });
+
+        if (!check){
+            document.getElementById('deletename').style.borderColor = "red";
+            document.getElementById('deleteErr').innerHTML = '&#9888; Could not find name. Please try again.';
+          //The name you want to delete is not found
+        } else {
+            document.getElementById('deletename').style.borderColor = "lightgrey";
+            document.getElementById('deleteErr').innerHTML = '';
+            location.reload();  
+        }
+      });
+    } else {
+      document.getElementById('auth').style.borderColor = "red";
+      document.getElementById('authErr').innerHTML = '&#9888; Authentication failed. Please try again.';
+    }
+  });
 }

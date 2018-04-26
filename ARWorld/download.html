@@ -39,28 +39,35 @@ Released   : 20081009
     	<div class="picture">
         	<div id="headerTitle">Downloads</div>
             <br>
-            <div id="headerSubtext">Download your image pdfs here!</div>
+            <div id="headerSubtext">Download or remove image pdfs</div>
         </div>
     </div>
         <div class="contentBox">
     	<div class="innerBox">
 
-			<h1>Download links here!</h1>
-		<div id="mainBox" class="contentText">
+		<h1>Download links below:</h1>
+		<div id="mainBox" class="contentText" word-wrap="break-word">
 			<pre id="Users"></pre>
 		    <ul id = "list"></ul>
 
-		    <!--form>
-          	User Name:<br>
-		      <input type="text" name="name" id="readname"><br>
-          	Password:<br>
-		      <input type="text" name="pass" id="readpassword"><br>
-			</form-->
-		      <!--button onclick="readFunction()">Get Links</button> <br /><br /-->
+		    <script>readFunction()</script>
 
-		      <script>readFunction()</script>
+
 		    <!--script src="app.js"></script-->
 		</div>
+
+        <h1>Remove links below:</h1>
+        <div class="contentText">
+            <p>Authentication: 
+              <input type="password" name="auth" id="auth">
+              <label id = 'authErr'></label>
+            </p>
+            <p>Remove by name: 
+                <input type="text" name="deletename" id="deletename">
+                <label id = 'deleteErr'></label>
+            </p>
+            <button onclick="removeFunction()">Remove</button>
+        </div>
 
 
           <!-- Please leave this in place after all of your content - thanks :) -->
