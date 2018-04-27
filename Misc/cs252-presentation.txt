@@ -1,0 +1,5 @@
+https://raw.githubusercontent.com/illy94/CS252_Project/master/ARWorld/patterns/newD.patt
+
+https://bit.ly/2I0CTko
+
+https://raw.githubusercontent.com/illy94/CS252_Project/master/ARWorld/3dmodels/gltf/cs252dino/scene.gltf
